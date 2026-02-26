@@ -14,12 +14,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Ventana extends JFrame {
 	
-	public Ventana(){
+	public Ventana() {
 		
 		this.setVisible(true);
 		this.setSize(1200,600);
@@ -29,10 +31,15 @@ public class Ventana extends JFrame {
 		this.setMaximumSize(new Dimension(800,800));
 		this.setTitle("hola");
 		this.setBackground(Color.black);
+		this.getContentPane().setBackground(Color.gray);
 		//this.setLocation(0, 0);
 		this.setLayout(null);
+		//this.login();
+		this.users();
 		
-		//ccontenedor login
+	}
+	 
+	public void login() {
 		JPanel contenedor = new JPanel();
 		contenedor.setOpaque(true);
 		//contenedor.setBackground(Color.white);
@@ -123,9 +130,10 @@ public class Ventana extends JFrame {
 		contenedor.add(labelRPassword);
 		
 		contenedor.repaint();
-		contenedor.revalidate();
-		
-		//contenedor para el registro
+		contenedor.revalidate();	
+	}
+	
+	public void registro() {
 		JPanel register_container = new JPanel();
 		register_container.setSize(500,500);
 		register_container.setLocation(600, 0);
@@ -236,7 +244,89 @@ public class Ventana extends JFrame {
 		register_container.add(create_account);
 		
 		register_container.repaint();
-		
 	}
-
+	
+	public void users() {
+		JPanel users = new JPanel();
+		users.setSize(1000, 500);
+		users.setLocation(100, 50);
+		users.setBackground(Color.decode("#D4EFFF"));
+		users.setLayout(null);
+		this.add(users);
+		
+		JLabel users_title = new JLabel("USUARIOS");	
+		users_title.setBounds(400, 50, 150, 40);
+		users_title.setOpaque(false);
+		users_title.setHorizontalAlignment(JLabel.CENTER);
+		users_title.setFont(new Font("Arial",Font.BOLD,22));
+		users.add(users_title);
+		
+		JButton export = new JButton("Exportar");
+		export.setBounds(30, 120, 150, 40);
+		export.setFont(new Font("Arial",Font.BOLD,22));
+		export.setBackground(Color.blue);
+		export.setForeground(Color.white);
+		users.add(export);
+		
+		JButton add = new JButton("Añadir");
+		add.setBounds(190, 120, 150, 40);
+		add.setFont(new Font("Arial",Font.BOLD,22));
+		add.setBackground(Color.blue);
+		add.setForeground(Color.white);
+		users.add(add);
+		
+		Object [] table_head = {"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"};
+		Object [] [] table_contend = {
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
+				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"}
+		};
+		
+		
+		JTable users_table = new JTable(table_contend, table_head);
+		JScrollPane scrollPane = new JScrollPane(users_table);
+		scrollPane.setLocation(280, 180);
+		scrollPane.setSize(450, 200);
+		scrollPane.setBackground(Color.decode("#D4EFFF"));
+		users_table.setBackground(Color.decode("#D4EFFF"));
+		scrollPane.setBorder(BorderFactory.createLineBorder(Color.blue));
+		users.add(scrollPane);
+		
+		
+		users.repaint();
+	}
 }
