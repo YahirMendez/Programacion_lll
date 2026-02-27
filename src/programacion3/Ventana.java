@@ -11,6 +11,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -23,7 +26,6 @@ public class Ventana extends JFrame {
 	
 	public Ventana() {
 		
-		this.setVisible(true);
 		this.setSize(1200,600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
@@ -35,7 +37,40 @@ public class Ventana extends JFrame {
 		//this.setLocation(0, 0);
 		this.setLayout(null);
 		//this.login();
+		
+		JMenuBar barra = new JMenuBar();
+		
+		JMenu archivo = new JMenu("Archivo");
+		
+		JMenuItem open = new JMenuItem("Abrir");
+		JMenuItem close = new JMenuItem("Cerrar");
+		JMenuItem save = new JMenuItem("Guardar");
+		JMenuItem newFile = new JMenuItem("Nuevo");
+		
+		archivo.add(open);
+		archivo.add(close);
+		archivo.add(save);
+		archivo.add(newFile);
+		
+		barra.add(archivo);
+		
+		JMenu submenu = new JMenu("Otros");
+		archivo.addSeparator();
+		
+		JMenuItem menuItem = new JMenuItem("An itme in the submenu");
+		submenu.add(menuItem);
+		
+		menuItem = new JMenu("Anothe item");
+		submenu.add(menuItem);
+		archivo.add(submenu);
+		
+		this.setJMenuBar(barra);
+		this.setJMenuBar(barra);
+		this.add(barra);
+		
 		this.users();
+		this.setVisible(true);
+	
 		
 	}
 	 
@@ -277,43 +312,43 @@ public class Ventana extends JFrame {
 		
 		Object [] table_head = {"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"};
 		Object [] [] table_contend = {
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"},
-				{"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"}
+				{"20231001","Luis","Martínez López","1","8.7","Editar/Eliminar"},
+				{"20231002","Ana","García Pérez","2","9.1","Editar/Eliminar"},
+				{"20231003","Carlos","Hernández Ruiz","3","7.8","Editar/Eliminar"},
+				{"20231004","María","Torres Sánchez","4","8.9","Editar/Eliminar"},
+				{"20231005","Jorge","Ramírez Cruz","5","6.5","Editar/Eliminar"},
+				{"20231006","Fernanda","Flores Gómez","6","9.5","Editar/Eliminar"},
+				{"20231007","Miguel","Vargas Díaz","7","8.2","Editar/Eliminar"},
+				{"20231008","Sofía","Castro Morales","8","9.0","Editar/Eliminar"},
+				{"20231009","Ricardo","Ortiz Jiménez","2","7.4","Editar/Eliminar"},
+				{"20231010","Valeria","Navarro León","3","8.8","Editar/Eliminar"},
+				{"20231011","Daniel","Mendoza Ríos","4","6.9","Editar/Eliminar"},
+				{"20231012","Camila","Silva Romero","5","9.3","Editar/Eliminar"},
+				{"20231013","Andrés","Guerrero Molina","6","7.7","Editar/Eliminar"},
+				{"20231014","Paola","Ramos Castillo","7","8.6","Editar/Eliminar"},
+				{"20231015","Diego","Reyes Herrera","8","9.2","Editar/Eliminar"},
+				{"20231016","Elena","Cortés Medina","1","8.0","Editar/Eliminar"},
+				{"20231017","Fernando","Aguilar Vega","2","7.1","Editar/Eliminar"},
+				{"20231018","Natalia","Peña Soto","3","9.4","Editar/Eliminar"},
+				{"20231019","Iván","Campos Ibarra","4","6.8","Editar/Eliminar"},
+				{"20231020","Diana","Delgado Núñez","5","8.3","Editar/Eliminar"},
+				{"20231021","Raúl","Salazar Cabrera","6","7.9","Editar/Eliminar"},
+				{"20231022","Gabriela","Paredes Lara","7","9.6","Editar/Eliminar"},
+				{"20231023","Hugo","Fuentes Bravo","8","8.4","Editar/Eliminar"},
+				{"20231024","Alejandra","Miranda Solís","1","7.6","Editar/Eliminar"},
+				{"20231025","Emilio","Valdez Ponce","2","8.1","Editar/Eliminar"},
+				{"20231026","Lucía","Mejía Carrillo","3","9.7","Editar/Eliminar"},
+				{"20231027","Óscar","Cárdenas Nieto","4","6.7","Editar/Eliminar"},
+				{"20231028","Daniela","Suárez Lozano","5","8.5","Editar/Eliminar"},
+				{"20231029","Sebastián","Arias Beltrán","6","7.3","Editar/Eliminar"},
+				{"20231030","Renata","Mora Escobar","7","9.8","Editar/Eliminar"},
+				{"20231031","Adrián","Luna Pacheco","8","8.9","Editar/Eliminar"},
+				{"20231032","Ximena","Rosales Acosta","1","7.2","Editar/Eliminar"},
+				{"20231033","Bruno","Cisneros Padilla","2","8.6","Editar/Eliminar"},
+				{"20231034","Mariana","Esquivel Zamora","3","9.0","Editar/Eliminar"},
+				{"20231035","Esteban","Villanueva Tapia","4","6.6","Editar/Eliminar"},
+				{"20231036","Regina","Santos Bautista","5","8.4","Editar/Eliminar"},
+				{"20231037","Tomás","Galindo Rangel","6","7.5","Editar/Eliminar"}
 		};
 		
 		
