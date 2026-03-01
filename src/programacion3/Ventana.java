@@ -3,9 +3,11 @@ package programacion3;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -36,8 +38,8 @@ public class Ventana extends JFrame {
 		this.getContentPane().setBackground(Color.gray);
 		//this.setLocation(0, 0);
 		this.setLayout(null);
-		//this.login();
-		
+	
+		/*
 		JMenuBar barra = new JMenuBar();
 		
 		JMenu archivo = new JMenu("Archivo");
@@ -68,10 +70,157 @@ public class Ventana extends JFrame {
 		this.setJMenuBar(barra);
 		this.add(barra);
 		
-		this.users();
+		this.users();*/
+		this.login2();
 		this.setVisible(true);
 	
 		
+	}
+	
+	public void login2() {
+
+		JPanel contenedor = new JPanel();
+		contenedor.setOpaque(true);
+		contenedor.setBackground(Color.white);
+		//contenedor.setBackground(Color.decode("#D4EFFF"));
+		contenedor.setSize(1200,600);
+		contenedor.setLocation(0, 0);
+		contenedor.setLayout(null);
+		contenedor.setBounds(0, 0, 1200, 600);
+		this.add(contenedor);
+		
+		ImageIcon imagenFondo = new ImageIcon("imagenFondo.png");
+		JLabel labelFondo = new JLabel();
+		labelFondo.setOpaque(false);
+		labelFondo.setSize(1200,600);
+		labelFondo.setLocation(0, 0);
+		labelFondo.setLayout(null);
+		labelFondo.setIcon(new ImageIcon(imagenFondo.getImage().getScaledInstance(labelFondo.getWidth(),labelFondo.getHeight(), Image.SCALE_SMOOTH)));
+		contenedor.add(labelFondo);
+		
+		JLabel title_login = new JLabel();
+		title_login.setText("Bienvenido");
+		title_login.setSize(200, 50);
+		title_login.setOpaque(false);
+		title_login.setLocation(470, 5);
+		title_login.setBackground(Color.white);
+		title_login.setFont(new Font("Arial",Font.BOLD,32));
+		title_login.setForeground(Color.white);
+		title_login.setHorizontalAlignment(JLabel.CENTER);
+		labelFondo.add(title_login);
+		
+		ImageIcon fondo2 = new ImageIcon("imagenFondo.png");
+		JLabel contenedor2 = new JLabel();
+		contenedor2.setOpaque(false);
+		contenedor2.setSize(800,400);
+		contenedor2.setLocation(200, 60);
+		contenedor2.setLayout(null);
+		contenedor2.setIcon(new ImageIcon(imagenFondo.getImage().getScaledInstance(contenedor2.getWidth(),contenedor2.getHeight(), Image.SCALE_SMOOTH)));
+		contenedor2.setBorder(BorderFactory.createLineBorder(Color.white));
+		labelFondo.add(contenedor2);
+		
+		JLabel MyAccount = new JLabel();
+		MyAccount.setText("Mi cuenta");
+		MyAccount.setSize(200, 50);
+		MyAccount.setOpaque(false);
+		MyAccount.setLocation(270, 10);
+		MyAccount.setBackground(Color.white);
+		MyAccount.setFont(new Font("Arial",Font.BOLD,32));
+		MyAccount.setForeground(Color.decode("#efb810"));
+		MyAccount.setHorizontalAlignment(JLabel.CENTER);
+		contenedor2.add(MyAccount);
+		
+		JLabel usuario = new JLabel();
+		usuario.setText("Ingresa tu usuario");
+		usuario.setSize(300, 50);
+		usuario.setOpaque(false);
+		usuario.setLocation(50, 70);
+		usuario.setBackground(Color.white);
+		usuario.setFont(new Font("Arial",Font.ITALIC,20));
+		usuario.setForeground(Color.white);
+		usuario.setHorizontalAlignment(JLabel.CENTER);
+		contenedor2.add(usuario);
+		
+		ImageIcon imagenUsuario = new ImageIcon("imagenUser.png");
+		JLabel labelUsuario = new JLabel();
+		labelUsuario.setBounds(55, 120, 50, 50);
+		labelUsuario.setIcon(new ImageIcon(imagenUsuario.getImage().getScaledInstance(labelUsuario.getHeight(), labelUsuario.getWidth(), Image.SCALE_SMOOTH)));
+		contenedor2.add(labelUsuario);
+		
+		JTextField username = new JTextField();
+		username.setSize(600, 50);
+		username.setLocation(110,120);
+		username.setFont(new Font("Arial",Font.BOLD,22));
+		username.setForeground(Color.black);
+		username.setHorizontalAlignment(JLabel.CENTER);
+		username.setBackground(Color.white);
+		username.setBorder(BorderFactory.createLineBorder(Color.black));
+		contenedor2.add(username);
+		
+		JLabel contraseña = new JLabel();
+		contraseña.setText("Ingresa tu contraseña");
+		contraseña.setSize(300, 50);
+		contraseña.setOpaque(false);
+		contraseña.setLocation(70, 180);
+		contraseña.setBackground(Color.white);
+		contraseña.setFont(new Font("Arial",Font.ITALIC,20));
+		contraseña.setForeground(Color.white);
+		contraseña.setHorizontalAlignment(JLabel.CENTER);
+		contenedor2.add(contraseña);
+		
+		ImageIcon imagenContraseña = new ImageIcon("imagenPassword.png");
+		JLabel labelContraseña = new JLabel();
+		labelContraseña.setBounds(55, 230, 50, 50);
+		labelContraseña.setIcon(new ImageIcon(imagenContraseña.getImage().getScaledInstance(labelContraseña.getHeight(), labelContraseña.getWidth(), Image.SCALE_SMOOTH)));
+		contenedor2.add(labelContraseña);
+		
+		JTextField password = new JTextField();
+		password.setSize(600, 50);
+		password.setLocation(110,230);
+		password.setFont(new Font("Arial",Font.BOLD,22));
+		password.setForeground(Color.black);
+		password.setHorizontalAlignment(JLabel.CENTER);
+		password.setBackground(Color.white);
+		password.setBorder(BorderFactory.createLineBorder(Color.black));
+		contenedor2.add(password);
+		
+		JButton acceder = new JButton();
+		acceder.setText("Acceder");
+		acceder.setLocation(280, 310);
+		acceder.setSize(200, 50);
+		acceder.setFont(new Font("Arial",Font.BOLD,22));
+		acceder.setBackground(Color.decode("#efb810"));
+		acceder.setForeground(Color.white);
+		acceder.setBorder(BorderFactory.createLineBorder(Color.white));
+		contenedor2.add(acceder);
+		
+		
+		JLabel question = new JLabel();
+		question.setText("¿No tienes una cuenta?");
+		question.setSize(300, 30);
+		question.setOpaque(false);
+		question.setLocation(430, 460);
+		question.setBackground(Color.white);
+		question.setFont(new Font("Arial",Font.ITALIC,14));
+		question.setForeground(Color.white);
+		question.setHorizontalAlignment(JLabel.CENTER);
+		labelFondo.add(question);
+		
+		JButton registrarse = new JButton();
+		registrarse.setText("Registrarse");
+		registrarse.setLocation(480, 495);
+		registrarse.setSize(200, 50);
+		registrarse.setFont(new Font("Arial",Font.BOLD,22));
+		registrarse.setBackground(Color.decode("#efb810"));
+		registrarse.setForeground(Color.white);
+		registrarse.setBorder(BorderFactory.createLineBorder(Color.white));
+		labelFondo.add(registrarse);
+		
+		contenedor.repaint();
+		contenedor.revalidate();	
+		
+	
+	
 	}
 	 
 	public void login() {
@@ -83,12 +232,18 @@ public class Ventana extends JFrame {
 		contenedor.setLocation(0, 0);
 		contenedor.setLayout(null);
 		this.add(contenedor);
-	
+		
+		ImageIcon imagenSilueta = new ImageIcon("imagenSilueta.png");
+		JLabel labelSilueta = new JLabel();
+		labelSilueta.setBounds(200, 10, 90, 90);
+		labelSilueta.setIcon(new ImageIcon(imagenSilueta.getImage().getScaledInstance(labelSilueta.getHeight(), labelSilueta.getWidth(), Image.SCALE_SMOOTH)));
+		contenedor.add(labelSilueta);
+		
 		JLabel title_login = new JLabel();
 		title_login.setText("Bienvenido");
 		title_login.setSize(200, 50);
 		title_login.setOpaque(false);
-		title_login.setLocation(145, 20);
+		title_login.setLocation(145, 100);
 		title_login.setBackground(Color.white);
 		title_login.setFont(new Font("Arial",Font.BOLD,22));
 		title_login.setForeground(Color.blue);
@@ -99,16 +254,22 @@ public class Ventana extends JFrame {
 		labelUsername.setText("Usuario: ");
 		labelUsername.setSize(220, 50);
 		labelUsername.setOpaque(false);
-		labelUsername.setLocation(30, 80);
+		labelUsername.setLocation(30, 140);
 		labelUsername.setBackground(Color.white);
 		labelUsername.setFont(new Font("Arial",Font.BOLD,22));
 		labelUsername.setForeground(Color.blue);
 		labelUsername.setHorizontalAlignment(JLabel.CENTER);
 		contenedor.add(labelUsername);
 		
+		ImageIcon imagenUsuario = new ImageIcon("imagenSilueta.png");
+		JLabel labelUsuario = new JLabel();
+		labelUsuario.setBounds(20, 180, 50, 50);
+		labelUsuario.setIcon(new ImageIcon(imagenSilueta.getImage().getScaledInstance(labelUsuario.getHeight(), labelUsuario.getWidth(), Image.SCALE_SMOOTH)));
+		contenedor.add(labelUsuario);
+		
 		JTextField username = new JTextField();
 		username.setSize(300, 50);
-		username.setLocation(85,120);
+		username.setLocation(85,180);
 		username.setFont(new Font("Arial",Font.BOLD,22));
 		username.setForeground(Color.black);
 		username.setHorizontalAlignment(JLabel.CENTER);
@@ -120,16 +281,22 @@ public class Ventana extends JFrame {
 		labelPassword.setText("Contraseña: ");
 		labelPassword.setSize(200, 50);
 		labelPassword.setOpaque(false);
-		labelPassword.setLocation(60, 180);
+		labelPassword.setLocation(60, 240);
 		labelPassword.setBackground(Color.white);
 		labelPassword.setFont(new Font("Arial",Font.BOLD,22));
 		labelPassword.setForeground(Color.blue);
 		labelPassword.setHorizontalAlignment(JLabel.CENTER);
 		contenedor.add(labelPassword);
 		
+		ImageIcon imagenPassword= new ImageIcon("imagenPassword.png");
+		JLabel IMG_labelPassword = new JLabel();
+		IMG_labelPassword.setBounds(20, 280, 50, 50);
+		IMG_labelPassword.setIcon(new ImageIcon(imagenPassword.getImage().getScaledInstance(IMG_labelPassword.getHeight(), IMG_labelPassword.getWidth(), Image.SCALE_SMOOTH)));
+		contenedor.add(IMG_labelPassword);
+		
 		JPasswordField password = new JPasswordField();
 		password.setSize(300, 50);
-		password.setLocation(85,220);
+		password.setLocation(85,280);
 		password.setFont(new Font("Arial",Font.BOLD,22));
 		password.setForeground(Color.black);
 		password.setHorizontalAlignment(JLabel.CENTER);
@@ -139,7 +306,7 @@ public class Ventana extends JFrame {
 	
 		JButton acceder = new JButton();
 		acceder.setText("Acceder");
-		acceder.setLocation(140, 380);
+		acceder.setLocation(140, 400);
 		acceder.setSize(200, 50);
 		acceder.setFont(new Font("Arial",Font.BOLD,22));
 		acceder.setBackground(Color.blue);
@@ -149,7 +316,7 @@ public class Ventana extends JFrame {
 		JCheckBox checkbox = new JCheckBox();
 		checkbox.setText("Recordarme");
 		checkbox.setOpaque(false);
-		checkbox.setBounds(85, 290, 100, 20);
+		checkbox.setBounds(85, 350, 100, 20);
 		checkbox.setBackground(Color.white);
 		contenedor.add(checkbox);
 		
@@ -157,7 +324,7 @@ public class Ventana extends JFrame {
 		labelRPassword.setText("¿Olvido su contraseña?");
 		labelRPassword.setSize(200, 20);
 		labelRPassword.setOpaque(false);
-		labelRPassword.setLocation(230, 290);
+		labelRPassword.setLocation(230, 350);
 		labelRPassword.setBackground(Color.white);
 		labelRPassword.setFont(new Font("Arial",Font.BOLD,12));
 		labelRPassword.setForeground(Color.blue);
