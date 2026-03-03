@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -24,7 +27,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class Ventana extends JFrame {
+public class Ventana extends JFrame implements ActionListener {
 	
 	public Ventana() {
 		
@@ -192,8 +195,24 @@ public class Ventana extends JFrame {
 		acceder.setBackground(Color.decode("#efb810"));
 		acceder.setForeground(Color.white);
 		acceder.setBorder(BorderFactory.createLineBorder(Color.white));
+		acceder.addActionListener(this);
+		acceder.addMouseListener (new java.awt.event.MouseAdapter() {
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				acceder.setBackground(Color.decode("#C8950C"));
+				super.mouseEntered(e);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				acceder.setBackground(Color.decode("#efb810"));
+				super.mouseExited(e);
+			}
+		});
 		contenedor2.add(acceder);
-		
 		
 		JLabel question = new JLabel();
 		question.setText("¿No tienes una cuenta?");
@@ -214,6 +233,22 @@ public class Ventana extends JFrame {
 		registrarse.setBackground(Color.decode("#efb810"));
 		registrarse.setForeground(Color.white);
 		registrarse.setBorder(BorderFactory.createLineBorder(Color.white));
+		registrarse.addMouseListener (new java.awt.event.MouseAdapter() {
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				registrarse.setBackground(Color.decode("#C8950C"));
+				super.mouseEntered(e);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				registrarse.setBackground(Color.decode("#efb810"));
+				super.mouseExited(e);
+			}
+		});
 		labelFondo.add(registrarse);
 		
 		contenedor.repaint();
@@ -530,5 +565,11 @@ public class Ventana extends JFrame {
 		
 		
 		users.repaint();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
