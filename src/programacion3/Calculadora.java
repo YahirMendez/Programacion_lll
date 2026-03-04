@@ -1,8 +1,12 @@
 package programacion3;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.ComponentOrientation;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -24,7 +28,8 @@ public class Calculadora extends JFrame {
 	public Calculadora() {
 		
 		this.setVisible(true);
-		this.setSize(610,640);
+		this.setSize(1000, 500);
+		//this.setSize(610,640);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setMinimumSize(new Dimension(200,200));
@@ -35,6 +40,7 @@ public class Calculadora extends JFrame {
 		//this.setLocation(0, 0);
 		this.setLayout(null);
 		this.calculadora();
+		this.setVisible(true);
 		
 		
 	}

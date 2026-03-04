@@ -1,8 +1,12 @@
 package programacion3;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.ComponentOrientation;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -27,18 +31,19 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+//public class Ventana extends JFrame {
 public class Ventana extends JFrame implements ActionListener {
 	
 	public Ventana() {
 		
-		this.setSize(1200,600);
+		this.setSize(1200,700);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setMinimumSize(new Dimension(200,200));
 		this.setMaximumSize(new Dimension(800,800));
 		this.setTitle("hola");
 		this.setBackground(Color.black);
-		this.getContentPane().setBackground(Color.gray);
+		this.getContentPane().setBackground(Color.DARK_GRAY);
 		//this.setLocation(0, 0);
 		this.setLayout(null);
 	
@@ -74,7 +79,8 @@ public class Ventana extends JFrame implements ActionListener {
 		this.add(barra);
 		
 		this.users();*/
-		this.login2();
+		//this.login2();
+		this.calculadora();
 		this.setVisible(true);
 	
 		
@@ -571,5 +577,168 @@ public class Ventana extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void calculadora() {
+		JPanel contenedor = new JPanel();
+		contenedor.setSize(600, 600);
+		contenedor.setLocation(300, 0);
+		contenedor.setBackground(Color.gray);
+		contenedor.setLayout(new BorderLayout(0,0));
+		this.add(contenedor);
+		
+		
+		
+		JTextField pantalla = new JTextField("100.00");
+		pantalla.setFont(new Font("Arial", Font.BOLD, 40));
+		pantalla.setBackground(Color.black);
+		pantalla.setForeground(Color.white);
+		pantalla.setSize(600,100);
+		pantalla.setHorizontalAlignment(JTextField.RIGHT);
+		pantalla.applyComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+		pantalla.setBorder(BorderFactory.createLineBorder(Color.gray));
+		pantalla.setPreferredSize(new Dimension(600, 100));
+		contenedor.add(pantalla,BorderLayout.NORTH);
+		
+		
+		JPanel center_panel = new JPanel(); 
+		center_panel.setSize(600, 500);
+		center_panel.setBackground(Color.white);
+		center_panel.setLayout(new GridLayout(4,4));
+		
+		JButton division = new JButton("/");
+		division.setFont(new Font("Arial",Font.BOLD,22));
+		division.setBackground(Color.orange);
+		division.setForeground(Color.black);
+		
+		JButton multiplicacion = new JButton("*");
+		multiplicacion.setFont(new Font("Arial",Font.BOLD,22));
+		multiplicacion.setBackground(Color.orange);
+		multiplicacion.setForeground(Color.black);
+		
+		JButton suma = new JButton("+");
+		suma.setFont(new Font("Arial",Font.BOLD,22));
+		suma.setBackground(Color.orange);
+		suma.setForeground(Color.black);
+		
+		JButton resta = new JButton("-");
+		resta.setFont(new Font("Arial",Font.BOLD,22));
+		resta.setBackground(Color.orange);
+		resta.setForeground(Color.black);
+		
+		JButton igual = new JButton("=");
+		igual.setFont(new Font("Arial",Font.BOLD,22));
+		igual.setBackground(Color.orange);
+		igual.setForeground(Color.black);
+		
+		JButton punto = new JButton(".");
+		punto.setFont(new Font("Arial",Font.BOLD,22));
+		punto.setBackground(Color.black);
+		punto.setForeground(Color.white);
+		
+		JButton cero = new JButton("0");
+		cero.setFont(new Font("Arial",Font.BOLD,22));
+		cero.setBackground(Color.black);
+		cero.setForeground(Color.white);
+		
+		JButton uno = new JButton("1");
+		uno.setFont(new Font("Arial",Font.BOLD,22));
+		uno.setBackground(Color.black);
+		uno.setForeground(Color.white);
+		
+		JButton dos = new JButton("2");
+		dos.setFont(new Font("Arial",Font.BOLD,22));
+		dos.setBackground(Color.black);
+		dos.setForeground(Color.white);
+		
+		JButton tres = new JButton("3");
+		tres.setFont(new Font("Arial",Font.BOLD,22));
+		tres.setBackground(Color.black);
+		tres.setForeground(Color.white);
+		
+		JButton cuatro = new JButton("4");
+		cuatro.setFont(new Font("Arial",Font.BOLD,22));
+		cuatro.setBackground(Color.black);
+		cuatro.setForeground(Color.white);
+		
+		JButton cinco = new JButton("5");
+		cinco.setFont(new Font("Arial",Font.BOLD,22));
+		cinco.setBackground(Color.black);
+		cinco.setForeground(Color.white);
+		
+		JButton seis = new JButton("6");
+		seis.setFont(new Font("Arial",Font.BOLD,22));
+		seis.setBackground(Color.black);
+		seis.setForeground(Color.white);
+		
+		JButton siete = new JButton("7");
+		siete.setFont(new Font("Arial",Font.BOLD,22));
+		siete.setBackground(Color.black);
+		siete.setForeground(Color.white);
+		
+		JButton ocho = new JButton("8");
+		ocho.setFont(new Font("Arial",Font.BOLD,22));
+		ocho.setBackground(Color.black);
+		ocho.setForeground(Color.white);
+		
+		JButton nueve = new JButton("9");
+		nueve.setFont(new Font("Arial",Font.BOLD,22));
+		nueve.setBackground(Color.black);
+		nueve.setForeground(Color.white);
+		
+		center_panel.add(siete);
+		center_panel.add(ocho);
+		center_panel.add(nueve);
+		center_panel.add(division);
+		center_panel.add(cuatro);
+		center_panel.add(cinco);
+		center_panel.add(seis);
+		center_panel.add(multiplicacion);
+		center_panel.add(uno);
+		center_panel.add(dos);
+		center_panel.add(tres);
+		center_panel.add(resta);
+		center_panel.add(cero);
+		center_panel.add(punto);
+		center_panel.add(igual);
+		center_panel.add(suma);
+		
+		JPanel center_panel2 = new JPanel();
+		center_panel2.setLayout(new BorderLayout());
+		center_panel2.add(center_panel, BorderLayout.CENTER);
+
+		JPanel panel_componentes = new JPanel();  
+		panel_componentes.setBackground(Color.black);
+		panel_componentes.setLayout(new FlowLayout(FlowLayout.CENTER,50,10));
+		panel_componentes.applyComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		center_panel2.add(panel_componentes, BorderLayout.NORTH);
+		
+		JButton Mmas = new JButton("M+");
+		Mmas.setFont(new Font("Arial",Font.BOLD,22));
+		Mmas.setBackground(Color.gray);
+		Mmas.setForeground(Color.black);
+		Mmas.setBorder(BorderFactory.createLineBorder(Color.black));
+		
+		JButton MC = new JButton("MC");
+		MC.setFont(new Font("Arial",Font.BOLD,22));
+		MC.setBackground(Color.gray);
+		MC.setForeground(Color.black);
+		
+		JButton b1 = new JButton("rad");
+		b1.setFont(new Font("Arial",Font.BOLD,22));
+		b1.setBackground(Color.gray);
+		b1.setForeground(Color.black);
+		
+		JButton b2 = new JButton("e");
+		b2.setFont(new Font("Arial",Font.BOLD,22));
+		b2.setBackground(Color.gray);
+		b2.setForeground(Color.black);
+		
+		panel_componentes.add(MC);
+		panel_componentes.add(Mmas);
+		panel_componentes.add(b1);
+		panel_componentes.add(b2);
+
+		contenedor.add(center_panel2,BorderLayout.CENTER);
 	}
 }
