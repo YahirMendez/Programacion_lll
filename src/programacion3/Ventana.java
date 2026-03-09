@@ -42,8 +42,13 @@ public class Ventana extends JFrame implements ActionListener {
 		this.setMinimumSize(new Dimension(200,200));
 		this.setMaximumSize(new Dimension(800,800));
 		this.setTitle("hola");
+		
+		ImageIcon imagenVentana = new ImageIcon("iconoVentana.png");
+		Image img = imagenVentana.getImage();
+		this.setIconImage(img);
+		
 		this.setBackground(Color.black);
-		this.getContentPane().setBackground(Color.DARK_GRAY);
+		this.getContentPane().setBackground(Color.decode("#AFB593"));
 		//this.setLocation(0, 0);
 		this.setLayout(null);
 	
@@ -747,100 +752,114 @@ public class Ventana extends JFrame implements ActionListener {
 		contenedor.setSize(600, 600);
 		contenedor.setLocation(300, 0);
 		contenedor.setBackground(Color.white);
-		contenedor.setLayout(new BorderLayout(0,40));
+		contenedor.setLayout(new BorderLayout(200,20));
 		this.add(contenedor);
+		
+		ImageIcon iconoVentana = new ImageIcon("iconoVentana.png");
+		JLabel labelIconoVentana = new JLabel();
+		labelIconoVentana.setOpaque(false);
+		labelIconoVentana.setSize(80,80);
+		labelIconoVentana.setLocation(450, 0);
+		labelIconoVentana.setLayout(null);
+		labelIconoVentana.setIcon(new ImageIcon(iconoVentana.getImage().getScaledInstance(labelIconoVentana.getWidth(),labelIconoVentana.getHeight(), Image.SCALE_SMOOTH)));
+		contenedor.add(labelIconoVentana);
 		
 		JLabel title_interes = new JLabel("Interés");
 		title_interes.setFont(new Font("Arial",Font.BOLD,24));
 		title_interes.setForeground(Color.decode("#efb810"));
-		title_interes.setHorizontalAlignment(JLabel.CENTER);
+		title_interes.setHorizontalAlignment(JLabel.LEFT);
 		contenedor.add(title_interes, BorderLayout.NORTH);
 		
 		
 		JPanel Calcular= new JPanel();
 		Calcular.setBackground(Color.blue);
-		Calcular.setLayout(new BorderLayout(3,1));
+		Calcular.setLayout(new BorderLayout(0,0));
 		contenedor.add(Calcular, BorderLayout.CENTER);
 		
-		JPanel Calcular2= new JPanel();
-		Calcular2.setBackground(Color.blue);
-		Calcular2.setLayout(new BorderLayout(3,1));
-		Calcular.add(Calcular2, BorderLayout.CENTER);
+		JPanel CalcularTitulo= new JPanel();
+		CalcularTitulo.setBackground(Color.decode("#5CCFE0"));
+		CalcularTitulo.setLayout(new BorderLayout(10,10));
+		Calcular.add(CalcularTitulo, BorderLayout.NORTH);
+		
+		JLabel CalcularInteres = new JLabel("Calcular intereses");
+		CalcularInteres.setBackground(Color.decode("#5CCFE0"));
+		CalcularInteres.setFont(new Font("Arial",Font.BOLD,24));
+		CalcularInteres.setForeground(Color.white);
+		CalcularInteres.setHorizontalAlignment(JLabel.LEFT);
+		CalcularTitulo.add(CalcularInteres, BorderLayout.NORTH);
+		
+		JPanel CalcularWest= new JPanel();
+		CalcularWest.setBackground(Color.DARK_GRAY);
+		CalcularWest.setLayout(new GridLayout(3,1));
+		CalcularWest.setPreferredSize(new Dimension(200,200)); 
+		Calcular.add(CalcularWest, BorderLayout.WEST);
 		
 		JLabel capital = new JLabel("Capital:");
-		capital.setSize(100, 50);
-		capital.setLocation(20, 20);
 		capital.setFont(new Font("Arial",Font.BOLD,24));
 		capital.setForeground(Color.black);
 		capital.setHorizontalAlignment(JLabel.CENTER);
-		Calcular2.add(capital);
+		CalcularWest.add(capital);
+		
+		JLabel tiempo = new JLabel("Tiempo:");
+		tiempo.setFont(new Font("Arial",Font.BOLD,24));
+		tiempo.setForeground(Color.black);
+		tiempo.setHorizontalAlignment(JLabel.CENTER);
+		CalcularWest.add(tiempo);
+		
+		JLabel tasaInteres = new JLabel("Tasa de Interes:");
+		tasaInteres.setFont(new Font("Arial",Font.BOLD,24));
+		tasaInteres.setForeground(Color.black);
+		tasaInteres.setHorizontalAlignment(JLabel.CENTER);
+		CalcularWest.add(tasaInteres);
+		
+		JPanel CalcularEast= new JPanel();
+		CalcularEast.setBackground(Color.blue);
+		CalcularEast.setLayout(new GridLayout(3,1));
+		CalcularEast.setPreferredSize(new Dimension(400,200)); 
+		Calcular.add(CalcularEast, BorderLayout.CENTER);
 		
 		JTextField capitalText = new JTextField();
-		capitalText.setSize(350, 50);
-		capitalText.setLocation(150, 20);
 		capitalText.setFont(new Font("Arial",Font.BOLD,22));
 		capitalText.setForeground(Color.black);
 		capitalText.setHorizontalAlignment(JLabel.CENTER);
 		capitalText.setBackground(Color.white);
 		capitalText.setBorder(BorderFactory.createLineBorder(Color.black));
-		Calcular2.add(capitalText);
-		
-		JLabel tiempo = new JLabel("Tiempo:");
-		tiempo.setSize(100, 50);
-		tiempo.setLocation(20, 80);
-		tiempo.setFont(new Font("Arial",Font.BOLD,24));
-		tiempo.setForeground(Color.black);
-		tiempo.setHorizontalAlignment(JLabel.CENTER);
-		Calcular2.add(tiempo);
+		CalcularEast.add(capitalText);
 		
 		JTextField tiempoText = new JTextField();
-		tiempoText.setSize(350, 50);
-		tiempoText.setLocation(150, 80);
 		tiempoText.setFont(new Font("Arial",Font.BOLD,22));
 		tiempoText.setForeground(Color.black);
 		tiempoText.setHorizontalAlignment(JLabel.CENTER);
 		tiempoText.setBackground(Color.white);
 		tiempoText.setBorder(BorderFactory.createLineBorder(Color.black));
-		Calcular2.add(tiempoText);
+		CalcularEast.add(tiempoText);
 		
-		JLabel tasaInteres = new JLabel("Tasa de Interes:");
-		tasaInteres.setSize(100, 50);
-		tasaInteres.setLocation(20, 200);
-		tasaInteres.setFont(new Font("Arial",Font.BOLD,24));
-		tasaInteres.setForeground(Color.black);
-		tasaInteres.setHorizontalAlignment(JLabel.CENTER);
-		Calcular2.add(tasaInteres);
-		
-		/*JTextField tasaText = new JTextField();
-		tasaText.setSize(350, 50);
-		tasaText.setLocation(150, 150);
+		JTextField tasaText = new JTextField();
 		tasaText.setFont(new Font("Arial",Font.BOLD,22));
 		tasaText.setForeground(Color.black);
 		tasaText.setHorizontalAlignment(JLabel.CENTER);
 		tasaText.setBackground(Color.white);
 		tasaText.setBorder(BorderFactory.createLineBorder(Color.black));
-		Calcular2.add(tasaText);*/
+		CalcularEast.add(tasaText);
 		
 		JPanel panel_botones = new JPanel();  
 		panel_botones.setBackground(Color.blue);
-		panel_botones.setLayout(new FlowLayout(FlowLayout.CENTER,50,10));
+		panel_botones.setLayout(new GridLayout(1,2));
 		panel_botones.applyComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		Calcular.add(panel_botones, BorderLayout.SOUTH);
 		
 		JButton BotonCalcular = new JButton("Calcular");
-		BotonCalcular.setLocation(140, 400);
-		BotonCalcular.setSize(100, 50);
 		BotonCalcular.setFont(new Font("Arial",Font.BOLD,22));
-		BotonCalcular.setBackground(Color.black);
+		BotonCalcular.setBackground(Color.decode("#A6D3DE"));
 		BotonCalcular.setForeground(Color.white);
+		BotonCalcular.setBorder(BorderFactory.createLineBorder(Color.black));
 		panel_botones.add(BotonCalcular, BorderLayout.SOUTH);
 		
-		JButton BotonCancelar = new JButton("Calcular");
-		BotonCancelar.setLocation(140, 400);
-		BotonCancelar.setSize(100, 50);
+		JButton BotonCancelar = new JButton("Cancelar");
 		BotonCancelar.setFont(new Font("Arial",Font.BOLD,22));
-		BotonCancelar.setBackground(Color.black);
+		BotonCancelar.setBackground(Color.decode("#A6D3DE"));
 		BotonCancelar.setForeground(Color.white);
+		BotonCancelar.setBorder(BorderFactory.createLineBorder(Color.black));
 		panel_botones.add(BotonCancelar, BorderLayout.SOUTH);
 		
 		JPanel resultados= new JPanel();	
@@ -849,43 +868,47 @@ public class Ventana extends JFrame implements ActionListener {
 		resultados.setPreferredSize(new Dimension(600,200)); 
 		contenedor.add(resultados, BorderLayout.SOUTH);
 		
+		JPanel resultadoswest= new JPanel();	
+		resultadoswest.setBackground(Color.gray);
+		resultadoswest.setLayout(new GridLayout(2,1));
+		resultadoswest.setPreferredSize(new Dimension(200,200)); 
+		resultados.add(resultadoswest, BorderLayout.WEST);
+		
 		JLabel interes = new JLabel("Interes:");
-		interes.setSize(100, 50);
-		interes.setLocation(20, 20);
 		interes.setFont(new Font("Arial",Font.BOLD,24));
 		interes.setForeground(Color.black);
 		interes.setHorizontalAlignment(JLabel.CENTER);
-		resultados.add(interes);
+		resultadoswest.add(interes);
+		
+		JLabel monto = new JLabel("Monto:");
+		monto.setFont(new Font("Arial",Font.BOLD,24));
+		monto.setForeground(Color.black);
+		monto.setHorizontalAlignment(JLabel.CENTER);
+		resultadoswest.add(monto);
+		
+		JPanel resultadoEast = new JPanel();	
+		resultadoEast.setBackground(Color.gray);
+		resultadoEast.setLayout(new GridLayout(2,1));
+		resultadoEast.setPreferredSize(new Dimension(400,200)); 
+		resultados.add(resultadoEast, BorderLayout.CENTER);
 		
 		JTextField interesText = new JTextField();
-		interesText.setSize(350, 50);
-		interesText.setLocation(150, 20);
 		interesText.setFont(new Font("Arial",Font.BOLD,22));
 		interesText.setForeground(Color.black);
 		interesText.setHorizontalAlignment(JLabel.CENTER);
 		interesText.setBackground(Color.white);
 		interesText.setBorder(BorderFactory.createLineBorder(Color.black));
-		resultados.add(interesText);
+		resultadoEast.add(interesText);
 		
-		JLabel monto = new JLabel("Monto:");
-		monto.setSize(100, 50);
-		monto.setLocation(20, 80);
-		monto.setFont(new Font("Arial",Font.BOLD,24));
-		monto.setForeground(Color.black);
-		monto.setHorizontalAlignment(JLabel.CENTER);
-		resultados.add(monto);
-		
-		/*JTextField montoText = new JTextField();
-		montoText.setSize(350, 50);
-		montoText.setLocation(150, 80);
+		JTextField montoText = new JTextField();
 		montoText.setFont(new Font("Arial",Font.BOLD,22));
 		montoText.setForeground(Color.black);
 		montoText.setHorizontalAlignment(JLabel.CENTER);
 		montoText.setBackground(Color.white);
 		montoText.setBorder(BorderFactory.createLineBorder(Color.black));
-		resultados.add(montoText);*/
+		resultadoEast.add(montoText);
 		
-		
+		contenedor.repaint();
 		
 	}
 }
