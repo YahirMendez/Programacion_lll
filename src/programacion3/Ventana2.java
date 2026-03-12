@@ -55,13 +55,13 @@ public class Ventana2 {
 	 * Create the application.
 	 */
 	public Ventana2() {
-		initialize();
+		RegistroDEUsuarios();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void RegistroDEUsuarios() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 600, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
