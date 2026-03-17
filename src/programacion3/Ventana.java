@@ -94,7 +94,8 @@ public class Ventana extends JFrame implements ActionListener {
 		//this.login2();
 		//this.intereses();
 		//this.pintar();
-		this.casa();
+		this.login();
+		this.registro();
 		this.setVisible(true);
 	
 		
@@ -368,6 +369,30 @@ public class Ventana extends JFrame implements ActionListener {
 		acceder.setForeground(Color.white);
 		contenedor.add(acceder);
 		
+		acceder.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String username_val = username.getText();
+				String password_val = new String(password.getPassword());
+				
+				if (username_val.equals("") || username_val.contains(" ")) {
+					username.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					username.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				if (password_val.equals("") || password_val.length()<6 || password_val.contains(" ")) {
+					password.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					password.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+			}
+		});
+		
 		JCheckBox checkbox = new JCheckBox();
 		checkbox.setText("Recordarme");
 		checkbox.setOpaque(false);
@@ -445,19 +470,24 @@ public class Ventana extends JFrame implements ActionListener {
 		register_container.add(preferencias_tag);
 		
 		JCheckBox Sweet_option = new JCheckBox("Dulce");
-		Sweet_option.setBounds(85, 260, 100, 20);
+		Sweet_option.setBounds(85, 260, 80, 20);
 		Sweet_option.setOpaque(false);
 		register_container.add(Sweet_option);
 		
 		JCheckBox Salty_option = new JCheckBox("Salado");
-		Salty_option.setBounds(200, 260, 100, 20);
+		Salty_option.setBounds(190, 260, 80, 20);
 		Salty_option.setOpaque(false);;
 		register_container.add(Salty_option);
 	
 		JCheckBox healthy_option = new JCheckBox("Saludable");
-		healthy_option.setBounds(300, 260, 100, 20);
+		healthy_option.setBounds(295, 260, 90, 20);
 		healthy_option.setOpaque(false);
 		register_container.add(healthy_option);
+		
+		Sweet_option.setBorderPainted(true);
+		Salty_option.setBorderPainted(true);
+		healthy_option.setBorderPainted(true);
+		
 		
 		JLabel terms_tag = new JLabel("Terminos");
 		terms_tag.setBounds(100, 290, 250, 40);
@@ -471,6 +501,7 @@ public class Ventana extends JFrame implements ActionListener {
 		JRadioButton accept_terms = new JRadioButton("acepto terminos");
 		accept_terms.setBounds(85, 340, 150, 20);
 		accept_terms.setOpaque(false);
+		accept_terms.setBorderPainted(true);
 		register_container.add(accept_terms);
 		
 		
@@ -499,6 +530,52 @@ public class Ventana extends JFrame implements ActionListener {
 		create_account.setBackground(Color.blue);
 		create_account.setForeground(Color.white);
 		register_container.add(create_account);
+		
+		create_account.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String username_val = username2.getText();
+				String bio_val = bio.getText();
+				
+				if (username_val.equals("") || username_val.contains(" ")) {
+					username2.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					username2.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				if(bio_val.equals("")) {
+					bio.setBorder(BorderFactory.createLineBorder(Color.blue));
+				}
+				else if (bio_val.length()<5) {
+					bio.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					bio.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				if (!Sweet_option.isSelected() && !Salty_option.isSelected() && !healthy_option.isSelected()) {
+					Sweet_option.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+					Salty_option.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+					healthy_option.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					Sweet_option.setBorder(BorderFactory.createLineBorder(Color.blue));
+					Salty_option.setBorder(BorderFactory.createLineBorder(Color.blue));
+					healthy_option.setBorder(BorderFactory.createLineBorder(Color.blue));
+				}
+				
+				if (!accept_terms.isSelected()) {
+					accept_terms.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					accept_terms.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				}
+		});
 		
 		register_container.repaint();
 	}
