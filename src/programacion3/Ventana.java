@@ -30,6 +30,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -377,6 +378,9 @@ public class Ventana extends JFrame implements ActionListener {
 				String username_val = username.getText();
 				String password_val = new String(password.getPassword());
 				
+				String correct_user = "lolo44";
+				String correct_password = "123456";
+				
 				if (username_val.equals("") || username_val.contains(" ")) {
 					username.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
 				}
@@ -389,6 +393,13 @@ public class Ventana extends JFrame implements ActionListener {
 				}
 				else {
 					password.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				if (username_val.equals(correct_user) && password_val.equals(correct_password)) {
+					JOptionPane.showMessageDialog(null, "Bienvenido "+correct_user);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Tu usuario o contraseña tienen un error");
 				}
 			}
 		});
@@ -539,6 +550,8 @@ public class Ventana extends JFrame implements ActionListener {
 				String username_val = username2.getText();
 				String bio_val = bio.getText();
 				
+				String correct_user = "lolo44";
+				
 				if (username_val.equals("") || username_val.contains(" ")) {
 					username2.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
 				}
@@ -572,6 +585,13 @@ public class Ventana extends JFrame implements ActionListener {
 				}
 				else {
 					accept_terms.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				if (username_val.equals(correct_user)) {
+					JOptionPane.showMessageDialog(null, "Bienvenido "+correct_user);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Tu usuario o contraseña tienen un error");
 				}
 				
 				}
