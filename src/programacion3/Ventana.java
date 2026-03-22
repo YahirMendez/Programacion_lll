@@ -105,7 +105,7 @@ public class Ventana extends JFrame implements ActionListener {
 		this.router("login");
 		//this.registro();
 		*/
-		this.marioBros();
+		this.evaluacionUnidad2();
 		this.setVisible(true);
 		/*
 	
@@ -117,6 +117,26 @@ public class Ventana extends JFrame implements ActionListener {
 			this.router("login");
 		});
 		*/
+	}
+	
+	public void evaluacionUnidad2() {
+
+		JPanel contenedor = new JPanel();
+		contenedor.setOpaque(true);
+		contenedor.setBackground(Color.white);
+		contenedor.setLayout(null);
+		contenedor.setBounds(300, 0, 600, 700);
+		this.add(contenedor);
+		
+		JPanel azul = new JPanel();
+		azul.setOpaque(true);
+		azul.setBackground(Color.blue);
+		//contenedor.setBackground(Color.decode("#D4EFFF"));
+		azul.setLayout(null);
+		azul.setBounds(0, 0, 600, 100);
+		contenedor.add(azul);
+		
+		
 	}
 	
 	public void login2() {
