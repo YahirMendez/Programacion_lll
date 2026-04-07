@@ -60,84 +60,20 @@ public class Ventana extends JFrame implements ActionListener {
 		//this.setLocation(0, 0);
 		this.setLayout(null);
 	
-		/*
-		JMenuBar barra = new JMenuBar();
-		
-		JMenu archivo = new JMenu("Archivo");
-		
-		JMenuItem open = new JMenuItem("Abrir");
-		JMenuItem close = new JMenuItem("Cerrar");
-		JMenuItem save = new JMenuItem("Guardar");
-		JMenuItem newFile = new JMenuItem("Nuevo");
-		
-		archivo.add(open);
-		archivo.add(close);
-		archivo.add(save);
-		archivo.add(newFile);
-		
-		barra.add(archivo);
-		
-		JMenu submenu = new JMenu("Otros");
-		archivo.addSeparator();
-		
-		JMenuItem menuItem = new JMenuItem("An itme in the submenu");
-		submenu.add(menuItem);
-		
-		menuItem = new JMenu("Anothe item");
-		submenu.add(menuItem);
-		archivo.add(submenu);
-		
-		JMenu ayuda = new JMenu("Ayuda");
-		
-		JMenu cuenta = new JMenu("Cuenta");
-		JMenuItem acceder = new JMenuItem("Acceder");
-		JMenuItem registrarse = new JMenuItem("Registrarse");
-		cuenta.add(acceder);
-		cuenta.add(registrarse);
-		
-		barra.add(ayuda);
-		barra.add(cuenta);
-		
-		this.setJMenuBar(barra);
 		
 
+		
+		this.menu();
 		this.login();
 		this.router("login");
 		//this.registro();
-		*/
-		this.evaluacionUnidad2();
+		
 		this.setVisible(true);
-		/*
-	
-		registrarse.addActionListener(e ->{
-			this.router("registro");
-		});
 		
-		acceder.addActionListener(e ->{
-			this.router("login");
-		});
-		*/
-	}
 	
-	public void evaluacionUnidad2() {
 
-		JPanel contenedor = new JPanel();
-		contenedor.setOpaque(true);
-		contenedor.setBackground(Color.white);
-		contenedor.setLayout(null);
-		contenedor.setBounds(300, 0, 600, 700);
-		this.add(contenedor);
-		
-		JPanel azul = new JPanel();
-		azul.setOpaque(true);
-		azul.setBackground(Color.blue);
-		//contenedor.setBackground(Color.decode("#D4EFFF"));
-		azul.setLayout(null);
-		azul.setBounds(0, 0, 600, 100);
-		contenedor.add(azul);
-		
-		
 	}
+	
 	
 	public void login2() {
 
@@ -475,7 +411,191 @@ public class Ventana extends JFrame implements ActionListener {
 		contenedor.repaint();
 		contenedor.revalidate();	
 	}
-	
+
+	public void recovery_password() {
+		JPanel contenedor = new JPanel();
+		contenedor.setOpaque(true);
+		//contenedor.setBackground(Color.white);
+		contenedor.setBackground(Color.decode("#D4EFFF"));
+		contenedor.setSize(1150,610);
+		contenedor.setLocation(20, 0);
+		contenedor.setLayout(null);
+		this.add(contenedor);
+		
+		
+		JLabel title_login = new JLabel();
+		title_login.setText("Recuperando  contraseña...");
+		title_login.setSize(500, 50);
+		title_login.setOpaque(false);
+		title_login.setLocation(300, 300);
+		title_login.setBackground(Color.white);
+		title_login.setFont(new Font("Arial",Font.BOLD,22));
+		title_login.setForeground(Color.blue);
+		title_login.setHorizontalAlignment(JLabel.CENTER);
+		contenedor.add(title_login);
+
+
+		contenedor.repaint();
+		contenedor.revalidate();	
+	}
+
+	public void p1_menu() {
+		JPanel contenedor = new JPanel();
+		contenedor.setOpaque(true);
+		//contenedor.setBackground(Color.white);
+		contenedor.setBackground(Color.decode("#D4EFFF"));
+		contenedor.setSize(1150,610);
+		contenedor.setLocation(20, 0);
+		contenedor.setLayout(null);
+		this.add(contenedor);
+		
+		
+		JLabel title_login = new JLabel();
+		title_login.setText("¿Cómo crear un usuario?");
+		title_login.setSize(500, 50);
+		title_login.setOpaque(false);
+		title_login.setLocation(300, 300);
+		title_login.setBackground(Color.white);
+		title_login.setFont(new Font("Arial",Font.BOLD,22));
+		title_login.setForeground(Color.blue);
+		title_login.setHorizontalAlignment(JLabel.CENTER);
+		contenedor.add(title_login);
+
+
+		contenedor.repaint();
+		contenedor.revalidate();	
+	}
+	public void p2_menu() {
+		JPanel contenedor = new JPanel();
+		contenedor.setOpaque(true);
+		//contenedor.setBackground(Color.white);
+		contenedor.setBackground(Color.decode("#D4EFFF"));
+		contenedor.setSize(1150,610);
+		contenedor.setLocation(20, 0);
+		contenedor.setLayout(null);
+		this.add(contenedor);
+		
+		
+		JLabel title_login = new JLabel();
+		title_login.setText("¿Cómo acceder al sistema?");
+		title_login.setSize(500, 50);
+		title_login.setOpaque(false);
+		title_login.setLocation(300, 300);
+		title_login.setBackground(Color.white);
+		title_login.setFont(new Font("Arial",Font.BOLD,22));
+		title_login.setForeground(Color.blue);
+		title_login.setHorizontalAlignment(JLabel.CENTER);
+		contenedor.add(title_login);
+
+
+		contenedor.repaint();
+		contenedor.revalidate();	
+	}
+	public void p3_menu() {
+		JPanel contenedor = new JPanel();
+		contenedor.setOpaque(true);
+		//contenedor.setBackground(Color.white);
+		contenedor.setBackground(Color.decode("#D4EFFF"));
+		contenedor.setSize(1150,610);
+		contenedor.setLocation(20, 0);
+		contenedor.setLayout(null);
+		this.add(contenedor);
+		
+		
+		JLabel title_login = new JLabel();
+		title_login.setText("¿Qué pasa si olvidé mi contraseña?");
+		title_login.setSize(500, 50);
+		title_login.setOpaque(false);
+		title_login.setLocation(300, 300);
+		title_login.setBackground(Color.white);
+		title_login.setFont(new Font("Arial",Font.BOLD,22));
+		title_login.setForeground(Color.blue);
+		title_login.setHorizontalAlignment(JLabel.CENTER);
+		contenedor.add(title_login);
+
+
+		contenedor.repaint();
+		contenedor.revalidate();	
+	}
+
+	public void Alta_menu() {
+		JPanel contenedor = new JPanel();
+		contenedor.setOpaque(true);
+		//contenedor.setBackground(Color.white);
+		contenedor.setBackground(Color.decode("#D4EFFF"));
+		contenedor.setSize(1150,610);
+		contenedor.setLocation(20, 0);
+		contenedor.setLayout(null);
+		this.add(contenedor);
+		
+		
+		JLabel title_login = new JLabel();
+		title_login.setText("Alta");
+		title_login.setSize(500, 50);
+		title_login.setOpaque(false);
+		title_login.setLocation(300, 300);
+		title_login.setBackground(Color.white);
+		title_login.setFont(new Font("Arial",Font.BOLD,22));
+		title_login.setForeground(Color.blue);
+		title_login.setHorizontalAlignment(JLabel.CENTER);
+		contenedor.add(title_login);
+
+
+		contenedor.repaint();
+		contenedor.revalidate();	
+	}
+	public void Baja_menu() {
+		JPanel contenedor = new JPanel();
+		contenedor.setOpaque(true);
+		//contenedor.setBackground(Color.white);
+		contenedor.setBackground(Color.decode("#D4EFFF"));
+		contenedor.setSize(1150,610);
+		contenedor.setLocation(20, 0);
+		contenedor.setLayout(null);
+		this.add(contenedor);
+		
+		
+		JLabel title_login = new JLabel();
+		title_login.setText("Baja");
+		title_login.setSize(500, 50);
+		title_login.setOpaque(false);
+		title_login.setLocation(300, 300);
+		title_login.setBackground(Color.white);
+		title_login.setFont(new Font("Arial",Font.BOLD,22));
+		title_login.setForeground(Color.blue);
+		title_login.setHorizontalAlignment(JLabel.CENTER);
+		contenedor.add(title_login);
+
+
+		contenedor.repaint();
+		contenedor.revalidate();	
+	}
+	public void Consultar_menu() {
+		JPanel contenedor = new JPanel();
+		contenedor.setOpaque(true);
+		//contenedor.setBackground(Color.white);
+		contenedor.setBackground(Color.decode("#D4EFFF"));
+		contenedor.setSize(1150,610);
+		contenedor.setLocation(20, 0);
+		contenedor.setLayout(null);
+		this.add(contenedor);
+		
+		
+		JLabel title_login = new JLabel();
+		title_login.setText("Consultar");
+		title_login.setSize(500, 50);
+		title_login.setOpaque(false);
+		title_login.setLocation(300, 300);
+		title_login.setBackground(Color.white);
+		title_login.setFont(new Font("Arial",Font.BOLD,22));
+		title_login.setForeground(Color.blue);
+		title_login.setHorizontalAlignment(JLabel.CENTER);
+		contenedor.add(title_login);
+
+
+		contenedor.repaint();
+		contenedor.revalidate();	
+	}
 	public void registro() {
 		JPanel register_container = new JPanel();
 		register_container.setSize(500,600);
@@ -1244,9 +1364,122 @@ public class Ventana extends JFrame implements ActionListener {
 		if (target.equals("registro"))
 			this.registro();
 		
+		if (target.equals("recovery_password"))
+			this.recovery_password();
+		
+		if (target.equals("p1_menu"))
+			this.p1_menu();
+		
+		if (target.equals("p2_menu"))
+			this.p2_menu();
+		
+		if (target.equals("p3_menu"))
+			this.p3_menu();
+		if (target.equals("Alta_menu"))
+			this.Alta_menu();
+		if (target.equals("Baja_menu"))
+			this.Baja_menu();
+		if (target.equals("Consultar_menu"))
+			this.Consultar_menu();
+		
 		this.setVisible(true);
 		this.repaint();
 		this.revalidate();
+	}
+	
+	public void menu() {
+		JMenuBar barra = new JMenuBar();
+		
+		JMenu archivo = new JMenu("Archivo");
+		
+		JMenuItem open = new JMenuItem("Abrir");
+		JMenuItem close = new JMenuItem("Cerrar");
+		JMenuItem save = new JMenuItem("Guardar");
+		JMenuItem newFile = new JMenuItem("Nuevo");
+		
+		archivo.add(open);
+		archivo.add(close);
+		archivo.add(save);
+		archivo.add(newFile);
+		
+		barra.add(archivo);
+		
+		JMenu submenu = new JMenu("Otros");
+		archivo.addSeparator();
+		
+		JMenuItem menuItem = new JMenuItem("An itme in the submenu");
+		submenu.add(menuItem);
+		
+		menuItem = new JMenu("Anothe item");
+		submenu.add(menuItem);
+		archivo.add(submenu);
+		
+		JMenu usuarios = new JMenu("Usuarios");
+		
+		JMenuItem alta = new JMenuItem("Alta");
+		JMenuItem baja = new JMenuItem("Baja");
+		JMenuItem consultar = new JMenuItem("Consultar");
+		usuarios.add(alta);
+		usuarios.add(baja);
+		usuarios.add(consultar);
+		barra.add(usuarios);
+		
+		
+		
+		JMenu ayuda = new JMenu("Ayuda");
+		
+		JMenuItem p1 = new JMenuItem("¿Cómo crear un usuario?");
+		JMenuItem p2 = new JMenuItem("¿Cómo acceder al sistema?");	
+		JMenuItem p3 = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");	
+		ayuda.add(p1);
+		ayuda.add(p2);
+		ayuda.add(p3);
+		barra.add(ayuda);
+		
+		JMenu cuenta = new JMenu("Cuenta");
+		JMenuItem acceder = new JMenuItem("Acceder");
+		JMenuItem registrarse = new JMenuItem("Registrarse");
+		JMenuItem recover_menu = new JMenuItem("Recuperar cuenta");
+		cuenta.add(acceder);
+		cuenta.add(registrarse);
+		cuenta.add(recover_menu);
+		
+		
+		barra.add(cuenta);
+		
+		this.setJMenuBar(barra);
+		
+		registrarse.addActionListener(e ->{
+			this.router("registro");
+		});
+		
+		acceder.addActionListener(e ->{
+			this.router("login");
+		});
+		
+		p1.addActionListener(e ->{
+			this.router("p1_menu");
+		});
+		
+		p2.addActionListener(e ->{
+			this.router("p2_menu");
+		});
+		p3.addActionListener(e ->{
+			this.router("p3_menu");
+		});
+		alta.addActionListener(e ->{
+			this.router("Alta_menu");
+		});
+		baja.addActionListener(e ->{
+			this.router("Baja_menu");
+		});
+		consultar.addActionListener(e ->{
+			this.router("Consultar_menu");
+		});
+
+		
+		
+		
 	}
 	
 	public void marioBros() {
