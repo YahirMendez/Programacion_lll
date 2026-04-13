@@ -424,16 +424,59 @@ public class Ventana extends JFrame implements ActionListener {
 		
 		
 		JLabel title_login = new JLabel();
-		title_login.setText("Recuperando  contraseña...");
+		title_login.setText("Recuperar contraseña");
 		title_login.setSize(500, 50);
 		title_login.setOpaque(false);
-		title_login.setLocation(300, 300);
+		title_login.setLocation(300, 100);
 		title_login.setBackground(Color.white);
 		title_login.setFont(new Font("Arial",Font.BOLD,22));
 		title_login.setForeground(Color.blue);
 		title_login.setHorizontalAlignment(JLabel.CENTER);
 		contenedor.add(title_login);
 
+		JLabel parrafo = new JLabel();
+		parrafo.setText("Le enviamos una nueva contraseña temporal al correo, esta expirara dentro de 24 horas");
+		parrafo.setSize(1000, 50);
+		parrafo.setOpaque(false);
+		parrafo.setLocation(60, 200);
+		parrafo.setBackground(Color.white);
+		parrafo.setFont(new Font("Arial",Font.BOLD,22));
+		parrafo.setForeground(Color.blue);
+		parrafo.setHorizontalAlignment(JLabel.CENTER);
+		contenedor.add(parrafo);
+		
+		JLabel parrafo2 = new JLabel();
+		parrafo2.setText("Si desea enviar una nueva contraseña preione reenviar");
+		parrafo2.setSize(500, 20);
+		parrafo2.setOpaque(false);
+		parrafo2.setLocation(300, 250);
+		parrafo2.setBackground(Color.white);
+		parrafo2.setFont(new Font("Arial",Font.BOLD,12));
+		parrafo2.setForeground(Color.blue);
+		parrafo2.setHorizontalAlignment(JLabel.CENTER);
+		contenedor.add(parrafo2);
+		
+		JButton enviarDN = new JButton();
+		enviarDN.setText("Reenviar");
+		enviarDN.setLocation(400, 350);
+		enviarDN.setSize(150, 50);
+		enviarDN.setFont(new Font("Arial",Font.BOLD,22));
+		enviarDN.setBackground(Color.blue);
+		enviarDN.setForeground(Color.white);
+		contenedor.add(enviarDN);
+		
+		JButton volver = new JButton();
+		volver.setText("Volver");
+		volver.setLocation(600, 350);
+		volver.setSize(150, 50);
+		volver.setFont(new Font("Arial",Font.BOLD,22));
+		volver.setBackground(Color.blue);
+		volver.setForeground(Color.white);
+		contenedor.add(volver);
+		
+		volver.addActionListener(e ->{
+			this.router("login");
+		});
 
 		contenedor.repaint();
 		contenedor.revalidate();	
@@ -452,14 +495,44 @@ public class Ventana extends JFrame implements ActionListener {
 		
 		JLabel title_login = new JLabel();
 		title_login.setText("¿Cómo crear un usuario?");
-		title_login.setSize(500, 50);
+		title_login.setSize(300, 50);
 		title_login.setOpaque(false);
-		title_login.setLocation(300, 300);
+		title_login.setLocation(20, 20);
 		title_login.setBackground(Color.white);
 		title_login.setFont(new Font("Arial",Font.BOLD,22));
 		title_login.setForeground(Color.blue);
 		title_login.setHorizontalAlignment(JLabel.CENTER);
 		contenedor.add(title_login);
+		
+		JTextArea parrafo = new JTextArea();
+		parrafo.setText("Entra a Usuario/Alta\n\n"
+		+"En esta sección puedes crear un nuevo usuario dentro del sistema.\n"
+		+"Usuario: Ingresa un nombre sin espacios y que no esté vacío.\n"
+		+"Biografía: Escribe una breve descripción (mínimo 5 caracteres).\n"
+		+"Preferencias: Selecciona al menos una opción (Dulce, Salado o Saludable).\n"
+		+"Términos: Debes aceptar los términos para poder continuar.\n"
+		+"Colonia: Selecciona una opción de la lista.\n"
+		+"Guardar usuario: Guarda la información ingresada.\n"
+		+"Cancelar: Regresa a la pantalla anterior sin guardar.\n"
+		+"Asegúrate de llenar todos los campos correctamente.");
+		parrafo.setSize(750, 800);
+		parrafo.setOpaque(false);
+		parrafo.setLocation(120, 100);
+		parrafo.setBackground(Color.white);
+		parrafo.setFont(new Font("Arial",Font.BOLD,22));
+		parrafo.setForeground(Color.blue);
+		contenedor.add(parrafo);
+		
+		JButton volver = new JButton("Volver");
+		volver.setBounds(900, 100, 150, 40);
+		volver.setFont(new Font("Arial",Font.BOLD,22));
+		volver.setBackground(Color.blue);
+		volver.setForeground(Color.white);
+		contenedor.add(volver);
+		
+		volver.addActionListener(e ->{
+			this.router("login");
+		});
 
 
 		contenedor.repaint();
@@ -478,14 +551,44 @@ public class Ventana extends JFrame implements ActionListener {
 		
 		JLabel title_login = new JLabel();
 		title_login.setText("¿Cómo acceder al sistema?");
-		title_login.setSize(500, 50);
+		title_login.setSize(300, 50);
 		title_login.setOpaque(false);
-		title_login.setLocation(300, 300);
+		title_login.setLocation(20, 20);
 		title_login.setBackground(Color.white);
 		title_login.setFont(new Font("Arial",Font.BOLD,22));
 		title_login.setForeground(Color.blue);
 		title_login.setHorizontalAlignment(JLabel.CENTER);
 		contenedor.add(title_login);
+		
+		JTextArea parrafo = new JTextArea();
+		parrafo.setText("Entra a Cuenta/Login\n\n"
+		+"En esta sección puedes acceder al sistema con tu usuario.\n"
+		+"Usuario: Ingresa tu nombre de usuario sin espacios.\n"
+		+"Contraseña: Ingresa tu contraseña (mínimo 6 caracteres).\n"
+		+"Acceder: Presiona este botón para iniciar sesión.\n"
+		+"Recordarme: Guarda tu usuario para futuros accesos.\n"
+		+"¿Olvidó su contraseña?: Te lleva a la recuperación de cuenta.\n"
+		+"¿Aún no tienes una cuenta?: Te lleva al registro.\n\n"
+		+"Si los datos son incorrectos, el sistema mostrará un error.\n"
+		+"Asegúrate de ingresar correctamente tu usuario y contraseña.");
+		parrafo.setSize(750, 800);
+		parrafo.setOpaque(false);
+		parrafo.setLocation(120, 100);
+		parrafo.setBackground(Color.white);
+		parrafo.setFont(new Font("Arial",Font.BOLD,22));
+		parrafo.setForeground(Color.blue);
+		contenedor.add(parrafo);
+		
+		JButton volver = new JButton("Volver");
+		volver.setBounds(900, 100, 150, 40);
+		volver.setFont(new Font("Arial",Font.BOLD,22));
+		volver.setBackground(Color.blue);
+		volver.setForeground(Color.white);
+		contenedor.add(volver);
+
+		volver.addActionListener(e ->{
+			this.router("login");
+		});
 
 
 		contenedor.repaint();
@@ -504,16 +607,44 @@ public class Ventana extends JFrame implements ActionListener {
 		
 		JLabel title_login = new JLabel();
 		title_login.setText("¿Qué pasa si olvidé mi contraseña?");
-		title_login.setSize(500, 50);
+		title_login.setSize(400, 50);
 		title_login.setOpaque(false);
-		title_login.setLocation(300, 300);
+		title_login.setLocation(20, 20);
 		title_login.setBackground(Color.white);
 		title_login.setFont(new Font("Arial",Font.BOLD,22));
 		title_login.setForeground(Color.blue);
 		title_login.setHorizontalAlignment(JLabel.CENTER);
 		contenedor.add(title_login);
+		
 
+		JTextArea parrafo = new JTextArea();
+		parrafo.setText("Entra a Cuenta/Recuperar cuenta\n\n"
+		+ "En esta sección puedes recuperar el acceso a tu cuenta.\n"
+		+ "El sistema enviará una contraseña temporal a tu correo electrónico.\n"
+		+ "Esta contraseña tendrá una duración de 24 horas.\n\n"
+		+ "Reenviar: Presiona este botón si no recibiste el correo o deseas uno nuevo.\n"
+		+ "Volver: Regresa a la pantalla de inicio de sesión.\n\n"
+		+ "Asegúrate de revisar tu bandeja de entrada y spam.\n"
+		+ "Después de ingresar, se recomienda cambiar tu contraseña.");
+		parrafo.setSize(750, 800);
+		parrafo.setOpaque(false);
+		parrafo.setLocation(120, 100);
+		parrafo.setBackground(Color.white);
+		parrafo.setFont(new Font("Arial",Font.BOLD,22));
+		parrafo.setForeground(Color.blue);
+		contenedor.add(parrafo);
 
+		JButton volver = new JButton("Volver");
+		volver.setBounds(900, 100, 150, 40);
+		volver.setFont(new Font("Arial",Font.BOLD,22));
+		volver.setBackground(Color.blue);
+		volver.setForeground(Color.white);
+		contenedor.add(volver);
+		
+		volver.addActionListener(e ->{
+			this.router("login");
+		});
+		
 		contenedor.repaint();
 		contenedor.revalidate();	
 	}
@@ -531,14 +662,190 @@ public class Ventana extends JFrame implements ActionListener {
 		
 		JLabel title_login = new JLabel();
 		title_login.setText("Alta");
-		title_login.setSize(500, 50);
+		title_login.setSize(100, 50);
 		title_login.setOpaque(false);
-		title_login.setLocation(300, 300);
+		title_login.setLocation(20, 20);
 		title_login.setBackground(Color.white);
 		title_login.setFont(new Font("Arial",Font.BOLD,22));
 		title_login.setForeground(Color.blue);
 		title_login.setHorizontalAlignment(JLabel.CENTER);
 		contenedor.add(title_login);
+		
+		JLabel user_tag = new JLabel();
+		user_tag.setText("Usuario: ");
+		user_tag.setSize(220, 50);
+		user_tag.setOpaque(false);
+		user_tag.setLocation(350, 20);
+		user_tag.setBackground(Color.white);
+		user_tag.setFont(new Font("Arial",Font.BOLD,22));
+		user_tag.setForeground(Color.blue);
+		user_tag.setHorizontalAlignment(JLabel.CENTER);
+		contenedor.add(user_tag);
+		
+		JTextField username2 = new JTextField();
+		username2.setSize(300, 50);
+		username2.setLocation(405,60);
+		username2.setFont(new Font("Arial",Font.BOLD,22));
+		username2.setForeground(Color.black);
+		username2.setHorizontalAlignment(JLabel.CENTER);
+		username2.setBackground(Color.decode("#D4EFFF"));
+		username2.setBorder(BorderFactory.createLineBorder(Color.blue));
+		contenedor.add(username2);
+		
+		JLabel bio_tag = new JLabel("Biografia");
+		bio_tag.setBounds(100, 110, 900, 40);
+		bio_tag.setBackground(Color.white);
+		bio_tag.setHorizontalAlignment(JLabel.CENTER);
+		bio_tag.setOpaque(false);
+		bio_tag.setFont(new Font("Arial",Font.BOLD,22));
+		bio_tag.setForeground(Color.blue);
+		contenedor.add(bio_tag);
+		
+		JTextArea bio =new JTextArea();
+		bio.setBounds(405, 150, 300, 60);
+		bio.setBackground(Color.decode("#D4EFFF"));
+		bio.setBorder(BorderFactory.createLineBorder(Color.blue));
+		contenedor.add(bio);
+		
+		JLabel preferencias_tag = new JLabel("Preferencias");
+		preferencias_tag.setBounds(100, 210, 900, 40);
+		preferencias_tag.setBackground(Color.white);
+		preferencias_tag.setHorizontalAlignment(JLabel.CENTER);
+		preferencias_tag.setOpaque(false);
+		preferencias_tag.setFont(new Font("Arial",Font.BOLD,22));
+		preferencias_tag.setForeground(Color.blue);
+		contenedor.add(preferencias_tag);
+		
+		JCheckBox Sweet_option = new JCheckBox("Dulce");
+		Sweet_option.setBounds(400, 260, 80, 20);
+		Sweet_option.setOpaque(false);
+		contenedor.add(Sweet_option);
+		
+		JCheckBox Salty_option = new JCheckBox("Salado");
+		Salty_option.setBounds(510, 260, 80, 20);
+		Salty_option.setOpaque(false);;
+		contenedor.add(Salty_option);
+	
+		JCheckBox healthy_option = new JCheckBox("Saludable");
+		healthy_option.setBounds(610, 260, 90, 20);
+		healthy_option.setOpaque(false);
+		contenedor.add(healthy_option);
+		
+		Sweet_option.setBorderPainted(true);
+		Salty_option.setBorderPainted(true);
+		healthy_option.setBorderPainted(true);
+		
+		
+		JLabel terms_tag = new JLabel("Terminos");
+		terms_tag.setBounds(100, 290, 900, 40);
+		terms_tag.setBackground(Color.white);
+		terms_tag.setHorizontalAlignment(JLabel.CENTER);
+		terms_tag.setOpaque(false);
+		terms_tag.setFont(new Font("Arial",Font.BOLD,22));
+		terms_tag.setForeground(Color.blue);
+		contenedor.add(terms_tag);
+		
+		JRadioButton accept_terms = new JRadioButton("acepto terminos");
+		accept_terms.setBounds(400, 340, 150, 20);
+		accept_terms.setOpaque(false);
+		accept_terms.setBorderPainted(true);
+		contenedor.add(accept_terms);
+		
+		
+		JRadioButton reject_terms = new JRadioButton("rechazo terminos");
+		reject_terms.setBounds(580, 340, 150, 20);
+		reject_terms.setOpaque(false);
+		accept_terms.setBorderPainted(true);
+		contenedor.add(reject_terms);
+		
+		ButtonGroup terms = new ButtonGroup();
+		terms.add(accept_terms);
+		terms.add(reject_terms);
+		
+		String [] colonias = {"camino real", "la fuente", "Calafia"};
+		
+		JComboBox list = new JComboBox(colonias);
+		list.setBounds(450, 380, 200, 20);
+		list.setBackground(Color.decode("#D4EFFF"));
+		list.setBorder(BorderFactory.createLineBorder(Color.blue));
+		contenedor.add(list);
+		
+		JButton guardar_usuario = new JButton();
+		guardar_usuario.setText("Guardar usuario");
+		guardar_usuario.setLocation(420, 420);
+		guardar_usuario.setSize(250, 50);
+		guardar_usuario.setFont(new Font("Arial",Font.BOLD,22));
+		guardar_usuario.setBackground(Color.blue);
+		guardar_usuario.setForeground(Color.white);
+		contenedor.add(guardar_usuario);
+		
+		JButton volver = new JButton();
+		volver.setText("Cancelar");
+		volver.setLocation(470, 500);
+		volver.setSize(150, 50);
+		volver.setFont(new Font("Arial",Font.BOLD,22));
+		volver.setBackground(Color.blue);
+		volver.setForeground(Color.white);
+		contenedor.add(volver);
+		
+		volver.addActionListener(e ->{
+			this.router("login");
+		});
+		
+		guardar_usuario.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String username_val = username2.getText();
+				String bio_val = bio.getText();
+				
+				String correct_user = "lolo44";
+				
+				if (username_val.equals("") || username_val.contains(" ")) {
+					username2.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					username2.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				if(bio_val.equals("")) {
+					bio.setBorder(BorderFactory.createLineBorder(Color.blue));
+				}
+				else if (bio_val.length()<5) {
+					bio.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					bio.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				if (!Sweet_option.isSelected() && !Salty_option.isSelected() && !healthy_option.isSelected()) {
+					Sweet_option.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+					Salty_option.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+					healthy_option.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					Sweet_option.setBorder(BorderFactory.createLineBorder(Color.blue));
+					Salty_option.setBorder(BorderFactory.createLineBorder(Color.blue));
+					healthy_option.setBorder(BorderFactory.createLineBorder(Color.blue));
+				}
+				
+				if (!accept_terms.isSelected()) {
+					accept_terms.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					accept_terms.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				if (username_val.equals(correct_user)) {
+					JOptionPane.showMessageDialog(null, "Bienvenido "+correct_user);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Tu usuario o contraseña tienen un error");
+				}
+				
+				}
+		});
 
 
 		contenedor.repaint();
@@ -557,14 +864,90 @@ public class Ventana extends JFrame implements ActionListener {
 		
 		JLabel title_login = new JLabel();
 		title_login.setText("Baja");
-		title_login.setSize(500, 50);
+		title_login.setSize(100, 50);
 		title_login.setOpaque(false);
-		title_login.setLocation(300, 300);
+		title_login.setLocation(20, 20);
 		title_login.setBackground(Color.white);
 		title_login.setFont(new Font("Arial",Font.BOLD,22));
 		title_login.setForeground(Color.blue);
 		title_login.setHorizontalAlignment(JLabel.CENTER);
 		contenedor.add(title_login);
+
+		JLabel users_title = new JLabel("USUARIOS");	
+		users_title.setBounds(400, 50, 150, 40);
+		users_title.setOpaque(false);
+		users_title.setHorizontalAlignment(JLabel.CENTER);
+		users_title.setFont(new Font("Arial",Font.BOLD,22));
+		contenedor.add(users_title);
+		
+		JButton delete = new JButton("Eliminar");
+		delete.setBounds(30, 120, 150, 40);
+		delete.setFont(new Font("Arial",Font.BOLD,22));
+		delete.setBackground(Color.blue);
+		delete.setForeground(Color.white);
+		contenedor.add(delete);
+		
+		JButton volver = new JButton("Volver");
+		volver.setBounds(900, 100, 150, 40);
+		volver.setFont(new Font("Arial",Font.BOLD,22));
+		volver.setBackground(Color.blue);
+		volver.setForeground(Color.white);
+		contenedor.add(volver);
+		
+		volver.addActionListener(e ->{
+			this.router("login");
+		});
+		
+		Object [] table_head = {"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"};
+		Object [] [] table_contend = {
+				{"20231001","Luis","Martínez López","1","8.7","Editar/Eliminar"},
+				{"20231002","Ana","García Pérez","2","9.1","Editar/Eliminar"},
+				{"20231003","Carlos","Hernández Ruiz","3","7.8","Editar/Eliminar"},
+				{"20231004","María","Torres Sánchez","4","8.9","Editar/Eliminar"},
+				{"20231005","Jorge","Ramírez Cruz","5","6.5","Editar/Eliminar"},
+				{"20231006","Fernanda","Flores Gómez","6","9.5","Editar/Eliminar"},
+				{"20231007","Miguel","Vargas Díaz","7","8.2","Editar/Eliminar"},
+				{"20231008","Sofía","Castro Morales","8","9.0","Editar/Eliminar"},
+				{"20231009","Ricardo","Ortiz Jiménez","2","7.4","Editar/Eliminar"},
+				{"20231010","Valeria","Navarro León","3","8.8","Editar/Eliminar"},
+				{"20231011","Daniel","Mendoza Ríos","4","6.9","Editar/Eliminar"},
+				{"20231012","Camila","Silva Romero","5","9.3","Editar/Eliminar"},
+				{"20231013","Andrés","Guerrero Molina","6","7.7","Editar/Eliminar"},
+				{"20231014","Paola","Ramos Castillo","7","8.6","Editar/Eliminar"},
+				{"20231015","Diego","Reyes Herrera","8","9.2","Editar/Eliminar"},
+				{"20231016","Elena","Cortés Medina","1","8.0","Editar/Eliminar"},
+				{"20231017","Fernando","Aguilar Vega","2","7.1","Editar/Eliminar"},
+				{"20231018","Natalia","Peña Soto","3","9.4","Editar/Eliminar"},
+				{"20231019","Iván","Campos Ibarra","4","6.8","Editar/Eliminar"},
+				{"20231020","Diana","Delgado Núñez","5","8.3","Editar/Eliminar"},
+				{"20231021","Raúl","Salazar Cabrera","6","7.9","Editar/Eliminar"},
+				{"20231022","Gabriela","Paredes Lara","7","9.6","Editar/Eliminar"},
+				{"20231023","Hugo","Fuentes Bravo","8","8.4","Editar/Eliminar"},
+				{"20231024","Alejandra","Miranda Solís","1","7.6","Editar/Eliminar"},
+				{"20231025","Emilio","Valdez Ponce","2","8.1","Editar/Eliminar"},
+				{"20231026","Lucía","Mejía Carrillo","3","9.7","Editar/Eliminar"},
+				{"20231027","Óscar","Cárdenas Nieto","4","6.7","Editar/Eliminar"},
+				{"20231028","Daniela","Suárez Lozano","5","8.5","Editar/Eliminar"},
+				{"20231029","Sebastián","Arias Beltrán","6","7.3","Editar/Eliminar"},
+				{"20231030","Renata","Mora Escobar","7","9.8","Editar/Eliminar"},
+				{"20231031","Adrián","Luna Pacheco","8","8.9","Editar/Eliminar"},
+				{"20231032","Ximena","Rosales Acosta","1","7.2","Editar/Eliminar"},
+				{"20231033","Bruno","Cisneros Padilla","2","8.6","Editar/Eliminar"},
+				{"20231034","Mariana","Esquivel Zamora","3","9.0","Editar/Eliminar"},
+				{"20231035","Esteban","Villanueva Tapia","4","6.6","Editar/Eliminar"},
+				{"20231036","Regina","Santos Bautista","5","8.4","Editar/Eliminar"},
+				{"20231037","Tomás","Galindo Rangel","6","7.5","Editar/Eliminar"}
+		};
+		
+		
+		JTable users_table = new JTable(table_contend, table_head);
+		JScrollPane scrollPane = new JScrollPane(users_table);
+		scrollPane.setLocation(280, 180);
+		scrollPane.setSize(450, 200);
+		scrollPane.setBackground(Color.decode("#D4EFFF"));
+		users_table.setBackground(Color.decode("#D4EFFF"));
+		scrollPane.setBorder(BorderFactory.createLineBorder(Color.blue));
+		contenedor.add(scrollPane);
 
 
 		contenedor.repaint();
@@ -583,15 +966,104 @@ public class Ventana extends JFrame implements ActionListener {
 		
 		JLabel title_login = new JLabel();
 		title_login.setText("Consultar");
-		title_login.setSize(500, 50);
+		title_login.setSize(150, 50);
 		title_login.setOpaque(false);
-		title_login.setLocation(300, 300);
+		title_login.setLocation(20, 20);
 		title_login.setBackground(Color.white);
 		title_login.setFont(new Font("Arial",Font.BOLD,22));
 		title_login.setForeground(Color.blue);
 		title_login.setHorizontalAlignment(JLabel.CENTER);
 		contenedor.add(title_login);
 
+		JLabel users_title = new JLabel("USUARIOS");	
+		users_title.setBounds(400, 50, 150, 40);
+		users_title.setOpaque(false);
+		users_title.setHorizontalAlignment(JLabel.CENTER);
+		users_title.setFont(new Font("Arial",Font.BOLD,22));
+		contenedor.add(users_title);
+		
+		JButton export = new JButton("Exportar");
+		export.setBounds(30, 120, 150, 40);
+		export.setFont(new Font("Arial",Font.BOLD,22));
+		export.setBackground(Color.blue);
+		export.setForeground(Color.white);
+		contenedor.add(export);
+		
+		JButton add = new JButton("Añadir");
+		add.setBounds(190, 120, 150, 40);
+		add.setFont(new Font("Arial",Font.BOLD,22));
+		add.setBackground(Color.blue);
+		add.setForeground(Color.white);
+		contenedor.add(add);
+		
+		JButton delete = new JButton("Eliminar");
+		delete.setBounds(350, 120, 150, 40);
+		delete.setFont(new Font("Arial",Font.BOLD,22));
+		delete.setBackground(Color.blue);
+		delete.setForeground(Color.white);
+		contenedor.add(delete);
+		
+		JButton volver = new JButton("Volver");
+		volver.setBounds(900, 100, 150, 40);
+		volver.setFont(new Font("Arial",Font.BOLD,22));
+		volver.setBackground(Color.blue);
+		volver.setForeground(Color.white);
+		contenedor.add(volver);
+		
+		volver.addActionListener(e ->{
+			this.router("login");
+		});
+		
+		Object [] table_head = {"No. Control","Nombre", "Apellidos", "Semestre", "Promedio", "Acciones"};
+		Object [] [] table_contend = {
+				{"20231001","Luis","Martínez López","1","8.7","Editar/Eliminar"},
+				{"20231002","Ana","García Pérez","2","9.1","Editar/Eliminar"},
+				{"20231003","Carlos","Hernández Ruiz","3","7.8","Editar/Eliminar"},
+				{"20231004","María","Torres Sánchez","4","8.9","Editar/Eliminar"},
+				{"20231005","Jorge","Ramírez Cruz","5","6.5","Editar/Eliminar"},
+				{"20231006","Fernanda","Flores Gómez","6","9.5","Editar/Eliminar"},
+				{"20231007","Miguel","Vargas Díaz","7","8.2","Editar/Eliminar"},
+				{"20231008","Sofía","Castro Morales","8","9.0","Editar/Eliminar"},
+				{"20231009","Ricardo","Ortiz Jiménez","2","7.4","Editar/Eliminar"},
+				{"20231010","Valeria","Navarro León","3","8.8","Editar/Eliminar"},
+				{"20231011","Daniel","Mendoza Ríos","4","6.9","Editar/Eliminar"},
+				{"20231012","Camila","Silva Romero","5","9.3","Editar/Eliminar"},
+				{"20231013","Andrés","Guerrero Molina","6","7.7","Editar/Eliminar"},
+				{"20231014","Paola","Ramos Castillo","7","8.6","Editar/Eliminar"},
+				{"20231015","Diego","Reyes Herrera","8","9.2","Editar/Eliminar"},
+				{"20231016","Elena","Cortés Medina","1","8.0","Editar/Eliminar"},
+				{"20231017","Fernando","Aguilar Vega","2","7.1","Editar/Eliminar"},
+				{"20231018","Natalia","Peña Soto","3","9.4","Editar/Eliminar"},
+				{"20231019","Iván","Campos Ibarra","4","6.8","Editar/Eliminar"},
+				{"20231020","Diana","Delgado Núñez","5","8.3","Editar/Eliminar"},
+				{"20231021","Raúl","Salazar Cabrera","6","7.9","Editar/Eliminar"},
+				{"20231022","Gabriela","Paredes Lara","7","9.6","Editar/Eliminar"},
+				{"20231023","Hugo","Fuentes Bravo","8","8.4","Editar/Eliminar"},
+				{"20231024","Alejandra","Miranda Solís","1","7.6","Editar/Eliminar"},
+				{"20231025","Emilio","Valdez Ponce","2","8.1","Editar/Eliminar"},
+				{"20231026","Lucía","Mejía Carrillo","3","9.7","Editar/Eliminar"},
+				{"20231027","Óscar","Cárdenas Nieto","4","6.7","Editar/Eliminar"},
+				{"20231028","Daniela","Suárez Lozano","5","8.5","Editar/Eliminar"},
+				{"20231029","Sebastián","Arias Beltrán","6","7.3","Editar/Eliminar"},
+				{"20231030","Renata","Mora Escobar","7","9.8","Editar/Eliminar"},
+				{"20231031","Adrián","Luna Pacheco","8","8.9","Editar/Eliminar"},
+				{"20231032","Ximena","Rosales Acosta","1","7.2","Editar/Eliminar"},
+				{"20231033","Bruno","Cisneros Padilla","2","8.6","Editar/Eliminar"},
+				{"20231034","Mariana","Esquivel Zamora","3","9.0","Editar/Eliminar"},
+				{"20231035","Esteban","Villanueva Tapia","4","6.6","Editar/Eliminar"},
+				{"20231036","Regina","Santos Bautista","5","8.4","Editar/Eliminar"},
+				{"20231037","Tomás","Galindo Rangel","6","7.5","Editar/Eliminar"}
+		};
+		
+		
+		JTable users_table = new JTable(table_contend, table_head);
+		JScrollPane scrollPane = new JScrollPane(users_table);
+		scrollPane.setLocation(280, 180);
+		scrollPane.setSize(450, 200);
+		scrollPane.setBackground(Color.decode("#D4EFFF"));
+		users_table.setBackground(Color.decode("#D4EFFF"));
+		scrollPane.setBorder(BorderFactory.createLineBorder(Color.blue));
+		contenedor.add(scrollPane);
 
 		contenedor.repaint();
 		contenedor.revalidate();	
@@ -863,15 +1335,149 @@ public class Ventana extends JFrame implements ActionListener {
 		scrollPane.setBorder(BorderFactory.createLineBorder(Color.blue));
 		users.add(scrollPane);
 		
+		this.setVisible(true);
+		this.repaint();
+		this.revalidate();
+	}
+	
+	public void router(String target) {
 		
-		users.repaint();
+		this.getContentPane().removeAll();
+		
+		if (target.equals("login"))
+			this.login();
+		
+		if (target.equals("registro"))
+			this.registro();
+		
+		if (target.equals("recovery_password"))
+			this.recovery_password();
+		
+		if (target.equals("p1_menu"))
+			this.p1_menu();
+		
+		if (target.equals("p2_menu"))
+			this.p2_menu();
+		
+		if (target.equals("p3_menu"))
+			this.p3_menu();
+		
+		if (target.equals("Alta_menu"))
+			this.Alta_menu();
+		
+		if (target.equals("Baja_menu"))
+			this.Baja_menu();
+		
+		if (target.equals("Consultar_menu"))
+			this.Consultar_menu();
+
+		
+		this.setVisible(true);
+		this.repaint();
+		this.revalidate();
+	}
+	
+	public void menu() {
+		JMenuBar barra = new JMenuBar();
+		
+		JMenu archivo = new JMenu("Archivo");
+		
+		JMenuItem open = new JMenuItem("Abrir");
+		JMenuItem close = new JMenuItem("Cerrar");
+		JMenuItem save = new JMenuItem("Guardar");
+		JMenuItem newFile = new JMenuItem("Nuevo");
+		
+		archivo.add(open);
+		archivo.add(close);
+		archivo.add(save);
+		archivo.add(newFile);
+		
+		barra.add(archivo);
+		
+		JMenu submenu = new JMenu("Otros");
+		archivo.addSeparator();
+		
+		JMenuItem menuItem = new JMenuItem("An itme in the submenu");
+		submenu.add(menuItem);
+		
+		menuItem = new JMenu("Anothe item");
+		submenu.add(menuItem);
+		archivo.add(submenu);
+		
+		JMenu usuarios = new JMenu("Usuarios");
+		
+		JMenuItem alta = new JMenuItem("Alta");
+		JMenuItem baja = new JMenuItem("Baja");
+		JMenuItem consultar = new JMenuItem("Consultar");
+		usuarios.add(alta);
+		usuarios.add(baja);
+		usuarios.add(consultar);
+		barra.add(usuarios);
+		
+		
+		
+		JMenu ayuda = new JMenu("Ayuda");
+		
+		JMenuItem p1 = new JMenuItem("¿Cómo crear un usuario?");
+		JMenuItem p2 = new JMenuItem("¿Cómo acceder al sistema?");	
+		JMenuItem p3 = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");	
+		ayuda.add(p1);
+		ayuda.add(p2);
+		ayuda.add(p3);
+		barra.add(ayuda);
+		
+		JMenu cuenta = new JMenu("Cuenta");
+		JMenuItem acceder = new JMenuItem("Acceder");
+		JMenuItem registrarse = new JMenuItem("Registrarse");
+		JMenuItem recover_menu = new JMenuItem("Recuperar cuenta");
+		cuenta.add(acceder);
+		cuenta.add(registrarse);
+		cuenta.add(recover_menu);
+		
+		
+		barra.add(cuenta);
+		
+		this.setJMenuBar(barra);
+		
+		registrarse.addActionListener(e ->{
+			this.router("registro");
+		});
+		
+		acceder.addActionListener(e ->{
+			this.router("login");
+		});
+		
+		recover_menu.addActionListener(e ->{
+			this.router("recovery_password");
+		});
+		
+		
+		p1.addActionListener(e ->{
+			this.router("p1_menu");
+		});
+		
+		p2.addActionListener(e ->{
+			this.router("p2_menu");
+		});
+		p3.addActionListener(e ->{
+			this.router("p3_menu");
+		});
+		alta.addActionListener(e ->{
+			this.router("Alta_menu");
+		});
+		baja.addActionListener(e ->{
+			this.router("Baja_menu");
+		});
+		consultar.addActionListener(e ->{
+			this.router("Consultar_menu");
+		});
+		
+
+		
+		
+		
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public void calculadora() {
 		JPanel contenedor = new JPanel();
@@ -1354,133 +1960,6 @@ public class Ventana extends JFrame implements ActionListener {
 		
 	}
 	
-	public void router(String target) {
-		
-		this.getContentPane().removeAll();
-		
-		if (target.equals("login"))
-			this.login();
-		
-		if (target.equals("registro"))
-			this.registro();
-		
-		if (target.equals("recovery_password"))
-			this.recovery_password();
-		
-		if (target.equals("p1_menu"))
-			this.p1_menu();
-		
-		if (target.equals("p2_menu"))
-			this.p2_menu();
-		
-		if (target.equals("p3_menu"))
-			this.p3_menu();
-		if (target.equals("Alta_menu"))
-			this.Alta_menu();
-		if (target.equals("Baja_menu"))
-			this.Baja_menu();
-		if (target.equals("Consultar_menu"))
-			this.Consultar_menu();
-		
-		this.setVisible(true);
-		this.repaint();
-		this.revalidate();
-	}
-	
-	public void menu() {
-		JMenuBar barra = new JMenuBar();
-		
-		JMenu archivo = new JMenu("Archivo");
-		
-		JMenuItem open = new JMenuItem("Abrir");
-		JMenuItem close = new JMenuItem("Cerrar");
-		JMenuItem save = new JMenuItem("Guardar");
-		JMenuItem newFile = new JMenuItem("Nuevo");
-		
-		archivo.add(open);
-		archivo.add(close);
-		archivo.add(save);
-		archivo.add(newFile);
-		
-		barra.add(archivo);
-		
-		JMenu submenu = new JMenu("Otros");
-		archivo.addSeparator();
-		
-		JMenuItem menuItem = new JMenuItem("An itme in the submenu");
-		submenu.add(menuItem);
-		
-		menuItem = new JMenu("Anothe item");
-		submenu.add(menuItem);
-		archivo.add(submenu);
-		
-		JMenu usuarios = new JMenu("Usuarios");
-		
-		JMenuItem alta = new JMenuItem("Alta");
-		JMenuItem baja = new JMenuItem("Baja");
-		JMenuItem consultar = new JMenuItem("Consultar");
-		usuarios.add(alta);
-		usuarios.add(baja);
-		usuarios.add(consultar);
-		barra.add(usuarios);
-		
-		
-		
-		JMenu ayuda = new JMenu("Ayuda");
-		
-		JMenuItem p1 = new JMenuItem("¿Cómo crear un usuario?");
-		JMenuItem p2 = new JMenuItem("¿Cómo acceder al sistema?");	
-		JMenuItem p3 = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");	
-		ayuda.add(p1);
-		ayuda.add(p2);
-		ayuda.add(p3);
-		barra.add(ayuda);
-		
-		JMenu cuenta = new JMenu("Cuenta");
-		JMenuItem acceder = new JMenuItem("Acceder");
-		JMenuItem registrarse = new JMenuItem("Registrarse");
-		JMenuItem recover_menu = new JMenuItem("Recuperar cuenta");
-		cuenta.add(acceder);
-		cuenta.add(registrarse);
-		cuenta.add(recover_menu);
-		
-		
-		barra.add(cuenta);
-		
-		this.setJMenuBar(barra);
-		
-		registrarse.addActionListener(e ->{
-			this.router("registro");
-		});
-		
-		acceder.addActionListener(e ->{
-			this.router("login");
-		});
-		
-		p1.addActionListener(e ->{
-			this.router("p1_menu");
-		});
-		
-		p2.addActionListener(e ->{
-			this.router("p2_menu");
-		});
-		p3.addActionListener(e ->{
-			this.router("p3_menu");
-		});
-		alta.addActionListener(e ->{
-			this.router("Alta_menu");
-		});
-		baja.addActionListener(e ->{
-			this.router("Baja_menu");
-		});
-		consultar.addActionListener(e ->{
-			this.router("Consultar_menu");
-		});
-
-		
-		
-		
-	}
 	
 	public void marioBros() {
 		JPanel panel = new JPanel() {
