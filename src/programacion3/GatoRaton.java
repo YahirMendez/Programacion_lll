@@ -11,6 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GatoRaton extends JFrame {
 
@@ -36,6 +39,15 @@ public class GatoRaton extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+	BotonesGatoRaton[] tablero = new BotonesGatoRaton[9];
+	String turno="X";
+	JLabel jugador_X;
+	JLabel jugador_O;
+	int puntosX=0;
+	int puntosO=0;
+	
+	
 	public GatoRaton() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -54,6 +66,7 @@ public class GatoRaton extends JFrame {
 		panel_norte.add(panel_tiempo, BorderLayout.NORTH);
 		
 		JLabel label_tiempo = new JLabel("0:00");
+		label_tiempo.setFont(new Font("Segoe UI", Font.BOLD, 20));
 		panel_tiempo.add(label_tiempo);
 		
 		JPanel panel_puntos = new JPanel();
@@ -65,16 +78,18 @@ public class GatoRaton extends JFrame {
 		panel.setBackground(new Color(0, 128, 255));
 		panel_puntos.add(panel);
 		
-		JLabel jugador_ = new JLabel("O:0");
-		panel.add(jugador_);
-		jugador_.setBackground(new Color(255, 0, 0));
-		jugador_.setHorizontalAlignment(SwingConstants.CENTER);
+		jugador_O = new JLabel("O:0");
+		jugador_O.setFont(new Font("Segoe UI", Font.BOLD, 20));
+		panel.add(jugador_O);
+		jugador_O.setBackground(new Color(255, 0, 0));
+		jugador_O.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 0, 0));
 		panel_puntos.add(panel_1);
 		
-		JLabel jugador_X = new JLabel("X:0");
+		jugador_X = new JLabel("X:0");
+		jugador_X.setFont(new Font("Segoe UI", Font.BOLD, 20));
 		panel_1.add(jugador_X);
 		jugador_X.setBackground(new Color(0, 0, 255));
 		jugador_X.setHorizontalAlignment(SwingConstants.CENTER);
@@ -84,6 +99,12 @@ public class GatoRaton extends JFrame {
 		contentPane.add(panel_sur, BorderLayout.SOUTH);
 		
 		JButton boton_reiniciar = new JButton("Reiniciar");
+		boton_reiniciar.setFont(new Font("Segoe UI", Font.BOLD, 20));
+		boton_reiniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reiniciar();
+			}
+		});
 		boton_reiniciar.setBackground(new Color(255, 255, 255));
 		panel_sur.add(boton_reiniciar);
 		
@@ -92,42 +113,89 @@ public class GatoRaton extends JFrame {
 		contentPane.add(panel_centro, BorderLayout.CENTER);
 		panel_centro.setLayout(new GridLayout(3, 3, 0, 0));
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBackground(new Color(255, 255, 255));
-		panel_centro.add(btnNewButton);
-		
-		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setBackground(new Color(255, 255, 255));
-		panel_centro.add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("");
-		btnNewButton_3.setBackground(new Color(255, 255, 255));
-		panel_centro.add(btnNewButton_3);
-		
-		JButton btnNewButton_4 = new JButton("");
-		btnNewButton_4.setBackground(new Color(255, 255, 255));
-		panel_centro.add(btnNewButton_4);
-		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBackground(new Color(255, 255, 255));
-		panel_centro.add(btnNewButton_1);
-		
-		JButton btnNewButton_6 = new JButton("");
-		btnNewButton_6.setBackground(new Color(255, 255, 255));
-		panel_centro.add(btnNewButton_6);
-		
-		JButton btnNewButton_5 = new JButton("");
-		btnNewButton_5.setBackground(new Color(255, 255, 255));
-		panel_centro.add(btnNewButton_5);
-		
-		JButton btnNewButton_7 = new JButton("");
-		btnNewButton_7.setBackground(new Color(255, 255, 255));
-		panel_centro.add(btnNewButton_7);
-		
-		JButton btnNewButton_8 = new JButton("");
-		btnNewButton_8.setBackground(new Color(255, 255, 255));
-		panel_centro.add(btnNewButton_8);
+		for (int i=0; i<9; i++) {
+			tablero[i] = new BotonesGatoRaton(i);
+			panel_centro.add(tablero[i]);
+			tablero[i].addActionListener(new ActionListener() {
 
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					BotonesGatoRaton boton = (BotonesGatoRaton) e.getSource();
+					jugar(boton);
+				}
+			});
+		}
 	}
-
+	
+	public void jugar(BotonesGatoRaton boton) {
+		if (boton.getEstado().equals("")) {
+			boton.setText(turno);
+			boton.setEstado(turno);
+			boton.setEnabled(false);
+			
+			if (verificarGanador()) {
+				return;
+			}
+			
+			if (empate()) {
+				javax.swing.JOptionPane.showMessageDialog(this, "empate");
+				reiniciar();
+				return;
+			}
+			
+			if (turno.equals("X")) {
+				turno="O";
+			}
+			else {
+				turno="X";
+			}
+		}
+	}
+	
+	public  boolean verificarGanador() {
+		int[][] lineas = {{0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6}};
+	
+		for(int i=0; i<lineas.length; i++) {
+			String primero = tablero[lineas[i][0]].getEstado();
+			String segundo = tablero[lineas[i][1]].getEstado();
+			String tercero = tablero[lineas[i][2]].getEstado();
+			
+			if (!primero.equals("") && primero.equals(segundo) && primero.equals(tercero)) {
+				javax.swing.JOptionPane.showMessageDialog(this, "gano: "+ primero);
+				
+				if (primero.equals("X")) {
+					puntosX++;
+				}
+				else {
+					puntosO++;
+				}
+				marcador();
+				reiniciar();
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void marcador() {
+		jugador_X.setText("X: "+ puntosX);
+		jugador_O.setText("O: "+ puntosO);
+	}
+	
+	public boolean empate() {
+		for (int i=0; i<9; i++) {
+			if (tablero[i].getEstado().equals("")) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public void reiniciar() {
+		for (int i=0; i<9; i++) {
+			tablero[i].setText("");
+			tablero[i].setEstado("");
+			tablero[i].setEnabled(true);
+		}
+	}
 }
