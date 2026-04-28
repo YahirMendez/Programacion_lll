@@ -1,8 +1,10 @@
-package programacion3;
+package app;
 
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
+
+import controllers.AuthController;
 
 public class prueba1 {
 

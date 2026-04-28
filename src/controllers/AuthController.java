@@ -1,4 +1,6 @@
-package programacion3;
+package controllers;
+
+import views.AuthView;
 
 public class AuthController {
 	

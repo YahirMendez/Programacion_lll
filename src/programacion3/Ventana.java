@@ -1686,7 +1686,7 @@ public class Ventana extends JFrame implements ActionListener {
              // Ejemplo para cargar una imagen
                 BufferedImage image;
 				try {
-					image = ImageIO.read(new File("src/imagenes/img.png"));
+					image = ImageIO.read(new File("/imagenes/img.png"));
 
 	                g2d.drawImage(image, 650, 0, null);
 				} catch (IOException e) {
