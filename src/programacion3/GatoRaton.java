@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 
 public class GatoRaton extends JFrame {
 
@@ -161,7 +162,7 @@ public class GatoRaton extends JFrame {
 			String tercero = tablero[lineas[i][2]].getEstado();
 			
 			if (!primero.equals("") && primero.equals(segundo) && primero.equals(tercero)) {
-				javax.swing.JOptionPane.showMessageDialog(this, "gano: "+ primero);
+				JOptionPane.showMessageDialog(this, "gano: "+ primero);
 				
 				if (primero.equals("X")) {
 					puntosX++;
