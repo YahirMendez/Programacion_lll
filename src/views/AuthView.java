@@ -8,14 +8,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class AuthView {
@@ -198,6 +202,7 @@ public class AuthView {
 		
 		registro.addActionListener(e ->{
 			ventana.dispose();
+			registerView();
 		});
 		
 		contenedor.repaint();
@@ -205,6 +210,211 @@ public class AuthView {
 	}
 	
 	public void registerView() {
+		JFrame ventana = new JFrame();
+		ventana.setSize(1200,700);
+		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ventana.setLocationRelativeTo(null);
+		ventana.setMinimumSize(new Dimension(200,200));
+		ventana.setMaximumSize(new Dimension(800,800));
+		ventana.setTitle("hola");
+		
+		ImageIcon imagenVentana = new ImageIcon("iconoVentana.png");
+		Image img = imagenVentana.getImage();
+		ventana.setIconImage(img);
+		
+		ventana.setBackground(Color.gray);
+		ventana.getContentPane().setBackground(Color.decode("#AFB593"));
+		//this.setLocation(0, 0);
+		ventana.setLayout(null);
+	
+		
+		ventana.setVisible(true);
+		
+		JPanel register_container = new JPanel();
+		register_container.setSize(500,600);
+		register_container.setLocation(600, 0);
+		register_container.setOpaque(true);
+		register_container.setBackground(Color.decode("#D4EFFF"));
+		register_container.setLayout(null);
+		ventana.add(register_container);
+		
+		JLabel user_tag = new JLabel();
+		user_tag.setText("Usuario: ");
+		user_tag.setSize(220, 50);
+		user_tag.setOpaque(false);
+		user_tag.setLocation(30, 20);
+		user_tag.setBackground(Color.white);
+		user_tag.setFont(new Font("Arial",Font.BOLD,22));
+		user_tag.setForeground(Color.blue);
+		user_tag.setHorizontalAlignment(JLabel.CENTER);
+		register_container.add(user_tag);
+		
+		JTextField username2 = new JTextField();
+		username2.setSize(300, 50);
+		username2.setLocation(85,60);
+		username2.setFont(new Font("Arial",Font.BOLD,22));
+		username2.setForeground(Color.black);
+		username2.setHorizontalAlignment(JLabel.CENTER);
+		username2.setBackground(Color.decode("#D4EFFF"));
+		username2.setBorder(BorderFactory.createLineBorder(Color.blue));
+		register_container.add(username2);
+		
+		JLabel bio_tag = new JLabel("Biografia");
+		bio_tag.setBounds(100, 110, 250, 40);
+		bio_tag.setBackground(Color.white);
+		bio_tag.setHorizontalAlignment(JLabel.CENTER);
+		bio_tag.setOpaque(false);
+		bio_tag.setFont(new Font("Arial",Font.BOLD,22));
+		bio_tag.setForeground(Color.blue);
+		register_container.add(bio_tag);
+		
+		JTextArea bio =new JTextArea();
+		bio.setBounds(85, 150, 300, 60);
+		bio.setBackground(Color.decode("#D4EFFF"));
+		bio.setBorder(BorderFactory.createLineBorder(Color.blue));
+		register_container.add(bio);
+		
+		JLabel preferencias_tag = new JLabel("Preferencias");
+		preferencias_tag.setBounds(100, 210, 250, 40);
+		preferencias_tag.setBackground(Color.white);
+		preferencias_tag.setHorizontalAlignment(JLabel.CENTER);
+		preferencias_tag.setOpaque(false);
+		preferencias_tag.setFont(new Font("Arial",Font.BOLD,22));
+		preferencias_tag.setForeground(Color.blue);
+		register_container.add(preferencias_tag);
+		
+		JCheckBox Sweet_option = new JCheckBox("Dulce");
+		Sweet_option.setBounds(85, 260, 80, 20);
+		Sweet_option.setOpaque(false);
+		register_container.add(Sweet_option);
+		
+		JCheckBox Salty_option = new JCheckBox("Salado");
+		Salty_option.setBounds(190, 260, 80, 20);
+		Salty_option.setOpaque(false);;
+		register_container.add(Salty_option);
+	
+		JCheckBox healthy_option = new JCheckBox("Saludable");
+		healthy_option.setBounds(295, 260, 90, 20);
+		healthy_option.setOpaque(false);
+		register_container.add(healthy_option);
+		
+		Sweet_option.setBorderPainted(true);
+		Salty_option.setBorderPainted(true);
+		healthy_option.setBorderPainted(true);
+		
+		
+		JLabel terms_tag = new JLabel("Terminos");
+		terms_tag.setBounds(100, 290, 250, 40);
+		terms_tag.setBackground(Color.white);
+		terms_tag.setHorizontalAlignment(JLabel.CENTER);
+		terms_tag.setOpaque(false);
+		terms_tag.setFont(new Font("Arial",Font.BOLD,22));
+		terms_tag.setForeground(Color.blue);
+		register_container.add(terms_tag);
+		
+		JRadioButton accept_terms = new JRadioButton("acepto terminos");
+		accept_terms.setBounds(85, 340, 150, 20);
+		accept_terms.setOpaque(false);
+		accept_terms.setBorderPainted(true);
+		register_container.add(accept_terms);
+		
+		
+		JRadioButton reject_terms = new JRadioButton("rechazo terminos");
+		reject_terms.setBounds(260, 340, 150, 20);
+		reject_terms.setOpaque(false);
+		register_container.add(reject_terms);
+		
+		ButtonGroup terms = new ButtonGroup();
+		terms.add(accept_terms);
+		terms.add(reject_terms);
+		
+		String [] colonias = {"camino real", "la fuente", "Calafia"};
+		
+		JComboBox list = new JComboBox(colonias);
+		list.setBounds(160, 380, 150, 20);
+		list.setBackground(Color.decode("#D4EFFF"));
+		list.setBorder(BorderFactory.createLineBorder(Color.blue));
+		register_container.add(list);
+		
+		JButton create_account = new JButton();
+		create_account.setText("Crear cuenta");
+		create_account.setLocation(130, 420);
+		create_account.setSize(200, 50);
+		create_account.setFont(new Font("Arial",Font.BOLD,22));
+		create_account.setBackground(Color.blue);
+		create_account.setForeground(Color.white);
+		register_container.add(create_account);
+		
+		JButton cancelar = new JButton();
+		cancelar.setText("Cancelar");
+		cancelar.setLocation(150, 500);
+		cancelar.setSize(150, 50);
+		cancelar.setFont(new Font("Arial",Font.BOLD,22));
+		cancelar.setBackground(Color.blue);
+		cancelar.setForeground(Color.white);
+		register_container.add(cancelar);
+		
+		cancelar.addActionListener(e ->{
+			ventana.dispose();
+			loginView();
+		});
+		
+		create_account.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String username_val = username2.getText();
+				String bio_val = bio.getText();
+				
+				String correct_user = "lolo44";
+				
+				if (username_val.equals("") || username_val.contains(" ")) {
+					username2.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					username2.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				if(bio_val.equals("")) {
+					bio.setBorder(BorderFactory.createLineBorder(Color.blue));
+				}
+				else if (bio_val.length()<5) {
+					bio.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					bio.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				if (!Sweet_option.isSelected() && !Salty_option.isSelected() && !healthy_option.isSelected()) {
+					Sweet_option.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+					Salty_option.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+					healthy_option.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					Sweet_option.setBorder(BorderFactory.createLineBorder(Color.blue));
+					Salty_option.setBorder(BorderFactory.createLineBorder(Color.blue));
+					healthy_option.setBorder(BorderFactory.createLineBorder(Color.blue));
+				}
+				
+				if (!accept_terms.isSelected()) {
+					accept_terms.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else {
+					accept_terms.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				}
+				
+				if (username_val.equals(correct_user)) {
+					JOptionPane.showMessageDialog(null, "Bienvenido "+correct_user);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Tu usuario o contraseña tienen un error");
+				}
+				
+				}
+		});
+		
+		register_container.repaint();
 		
 	}
 
