@@ -22,6 +22,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import controllers.HomeController;
+import models.AuthModel;
+
 public class AuthView {
 	
 	public AuthView() {
@@ -147,9 +150,6 @@ public class AuthView {
 				String username_val = username.getText();
 				String password_val = new String(password.getPassword());
 				
-				String correct_user = "lolo44";
-				String correct_password = "123456";
-				
 				if (username_val.equals("") || username_val.contains(" ")) {
 					username.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
 				}
@@ -164,12 +164,18 @@ public class AuthView {
 					password.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
 				}
 				
-				if (username_val.equals(correct_user) && password_val.equals(correct_password)) {
-					JOptionPane.showMessageDialog(null, "Bienvenido "+correct_user);
+				AuthModel model = new AuthModel();
+				
+				if (model.access(username_val, password_val)) {
+					JOptionPane.showMessageDialog(null, "Bienvenido "+username_val);
+					ventana.dispose();
+					HomeController hc = new HomeController();
+					hc.showHome();
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Tu usuario o contraseña tienen un error");
 				}
+				
 			}
 		});
 		
