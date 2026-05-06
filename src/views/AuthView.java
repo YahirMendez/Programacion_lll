@@ -410,11 +410,17 @@ public class AuthView {
 					accept_terms.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
 				}
 				
-				if (username_val.equals(correct_user)) {
-					JOptionPane.showMessageDialog(null, "Bienvenido "+correct_user);
-				}
-				else {
-					JOptionPane.showMessageDialog(null, "Tu usuario o contraseña tienen un error");
+				AuthModel model = new AuthModel();
+
+				boolean registrado = model.register(username_val, bio_val, username_val);
+
+				if (registrado) {
+				    JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
+
+				    username2.setText("");
+				    bio.setText("");
+				} else {
+				    JOptionPane.showMessageDialog(null, "Error: el usuario ya existe o falló el registro");
 				}
 				
 				}
