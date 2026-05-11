@@ -5,6 +5,7 @@ import views.AuthView;
 public class AuthController {
 	
 	private AuthView visita;
+	
 	public AuthController() {
 		visita = new AuthView();
 	}

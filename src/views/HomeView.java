@@ -5,8 +5,12 @@ import java.awt.Dimension;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import controllers.HomeController;
+import controllers.UsersController;
 
 public class HomeView {
 	
@@ -43,6 +47,18 @@ public class HomeView {
 		contenedor.setLocation(20, 0);
 		contenedor.setLayout(null);
 		ventana.add(contenedor);
+		
+		JButton goToUsers = new JButton("Ir al panel de usuarios");
+		goToUsers.setBounds(100, 100, 200, 50);
+		contenedor.add(goToUsers);
+		
+		goToUsers.addActionListener(e ->{
+			ventana.dispose();
+			UsersController uc = new UsersController();
+			uc.ShowUsers();
+		});
+		
+		contenedor.repaint();
+		contenedor.revalidate();
 	}
-
 }

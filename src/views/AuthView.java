@@ -166,14 +166,19 @@ public class AuthView {
 				
 				AuthModel model = new AuthModel();
 				
-				if (model.access(username_val, password_val)) {
-					JOptionPane.showMessageDialog(null, "Bienvenido "+username_val);
-					ventana.dispose();
-					HomeController hc = new HomeController();
-					hc.showHome();
-				}
-				else {
-					JOptionPane.showMessageDialog(null, "Tu usuario o contraseña tienen un error");
+				try {
+					if (model.access(username_val, password_val)) {
+						JOptionPane.showMessageDialog(null, "Bienvenido "+username_val);
+						ventana.dispose();
+						HomeController hc = new HomeController();
+						hc.showHome();
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Tu usuario o contraseña tienen un error");
+					}
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 				
 			}
@@ -274,11 +279,14 @@ public class AuthView {
 		bio_tag.setForeground(Color.blue);
 		register_container.add(bio_tag);
 		
-		JTextArea bio =new JTextArea();
-		bio.setBounds(85, 150, 300, 60);
-		bio.setBackground(Color.decode("#D4EFFF"));
-		bio.setBorder(BorderFactory.createLineBorder(Color.blue));
-		register_container.add(bio);
+		JTextField contraseña =new JTextField();
+		contraseña.setBounds(85, 150, 300, 50);
+		contraseña.setFont(new Font("Arial",Font.BOLD,22));
+		contraseña.setForeground(Color.black);
+		contraseña.setHorizontalAlignment(JLabel.CENTER);
+		contraseña.setBackground(Color.decode("#D4EFFF"));
+		contraseña.setBorder(BorderFactory.createLineBorder(Color.blue));
+		register_container.add(contraseña);
 		
 		JLabel preferencias_tag = new JLabel("Preferencias");
 		preferencias_tag.setBounds(100, 210, 250, 40);
@@ -369,9 +377,10 @@ public class AuthView {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				// TODO Auto-generated method stub
 				String username_val = username2.getText();
-				String bio_val = bio.getText();
+				String contraseña_val = contraseña.getText();
 				
 				String correct_user = "lolo44";
 				
@@ -382,14 +391,14 @@ public class AuthView {
 					username2.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
 				}
 				
-				if(bio_val.equals("")) {
-					bio.setBorder(BorderFactory.createLineBorder(Color.blue));
+				if(contraseña_val.equals("")) {
+					contraseña.setBorder(BorderFactory.createLineBorder(Color.blue));
 				}
-				else if (bio_val.length()<5) {
-					bio.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				else if (contraseña_val.length()<5) {
+					contraseña.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
 				}
 				else {
-					bio.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+					contraseña.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
 				}
 				
 				if (!Sweet_option.isSelected() && !Salty_option.isSelected() && !healthy_option.isSelected()) {
@@ -412,13 +421,13 @@ public class AuthView {
 				
 				AuthModel model = new AuthModel();
 
-				boolean registrado = model.register(username_val, bio_val, username_val);
+				boolean registrado = model.register(username_val, contraseña_val, username_val);
 
 				if (registrado) {
 				    JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
 
 				    username2.setText("");
-				    bio.setText("");
+				    contraseña.setText("");
 				} else {
 				    JOptionPane.showMessageDialog(null, "Error: el usuario ya existe o falló el registro");
 				}
