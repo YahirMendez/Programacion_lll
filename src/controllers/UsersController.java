@@ -20,5 +20,9 @@ public class UsersController {
 		ArrayList<User> users=  model.get();
 		view.tableUsers(users);
 	}
-
+	
+	public boolean addUser(String u, String p, String n) {
+		boolean flag = model.make(u, p, n);
+		return flag;
+	}
 }

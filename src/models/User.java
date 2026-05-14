@@ -69,6 +69,42 @@ public class User {
     	
     	return users;
     }
+    
+    public boolean make(String username, String password, String nombreCompleto) {  
+    	String query = "INSERT INTO usuarios (username, password, nombre_completo) VALUES (?, ?, ?)";
+    	
+		Connection conn = null;
+		Statement stmt = null;
+				
+			
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	
+	        conn = DriverManager.getConnection(
+	            "jdbc:mysql://localhost:3306/application_db",
+	            "root",
+	            "educadex2026"
+	        );
+	
+	        PreparedStatement ps = conn.prepareStatement(query);
+	        ps.setString(1, username);
+	        ps.setString(2, password);
+	        ps.setString(3, nombreCompleto);
+	
+	        int rowsAffected = ps.executeUpdate();
+	        
+	        if(rowsAffected >0){
+		        ps.close();
+		        conn.close();
+	        	return true;
+	        }
+	    }
+	    catch (Exception e) {
+	    	e.printStackTrace();
+	    	
+	    }
+	    return false;
+    }
 
 	public int getId() {
 		return id;
